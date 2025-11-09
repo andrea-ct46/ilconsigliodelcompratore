@@ -35,6 +35,7 @@
       margin-top:8px;
       font-size:0.9em;
     }
+    .error { text-align:center; color:#c00; margin-top:20px; }
   </style>
 </head>
 <body>
@@ -42,34 +43,47 @@
     <h1>Il Consiglio del Compratore</h1>
     <p class="sub">Prodotti aggiornati dal mio foglio Google in automatico.</p>
     <div id="prodotti" class="grid"></div>
+    <div id="errore" class="error"></div>
   </div>
 
   <script>
-    const CSV_URL = "https://api.allorigins.win/raw?url=" + encodeURIComponent("https://docs.google.com/spreadsheets/d/e/2PACX-1vTZ7vqus97NYfJoXjHjjI6705eGKxtqWSUWiHI5vT-xPNNghy3Ie2IaQ2MQDZI53Q7dEYzPVHbeIGR9/pub?output=csv");
+    const CSV_URL = "https://api.allorigins.win/raw?url=" + encodeURIComponent(
+      "https://docs.google.com/spreadsheets/d/e/2PACX-1vTZ7vqus97NYfJoXjHjjI6705eGKxtqWSUWiHI5vT-xPNNghy3Ie2IaQ2MQDZI53Q7dEYzPVHbeIGR9/pub?output=csv"
+    );
 
     async function caricaProdotti() {
+      const errBox = document.getElementById("errore");
+      const container = document.getElementById("prodotti");
       try {
         const res = await fetch(CSV_URL);
+        if (!res.ok) throw new Error("Fetch fallita: " + res.status);
         const text = await res.text();
 
         const righe = text.trim().split("\n");
-        const header = righe.shift().split(",");
+        if (righe.length <= 1) {
+          errBox.textContent = "Nessun prodotto trovato nel foglio (controlla che ci siano righe sotto le intestazioni).";
+          return;
+        }
 
+        const header = righe.shift().split(",");
         const idxNome = header.indexOf("nome");
         const idxDesc = header.indexOf("descrizione");
         const idxImg  = header.indexOf("immagine");
         const idxLink = header.indexOf("link");
 
-        const container = document.getElementById("prodotti");
-        container.innerHTML = "";
+        if (idxNome < 0 || idxLink < 0) {
+          errBox.textContent = "Intestazioni errate. Devono essere: nome, descrizione, immagine, link.";
+          return;
+        }
 
+        container.innerHTML = "";
         righe.forEach(riga => {
           if (!riga.trim()) return;
           const cols = riga.split(",");
 
           const nome = (cols[idxNome] || "").trim();
           const desc = (cols[idxDesc] || "").trim();
-          const img  = (cols[idxImg] || "").trim();
+          const img  = (cols[idxImg]  || "").trim();
           const link = (cols[idxLink] || "").trim();
 
           if (!nome || !link) return;
@@ -84,10 +98,13 @@
           `;
           container.appendChild(card);
         });
+
+        if (!container.innerHTML) {
+          errBox.textContent = "Nessun prodotto valido generato. Controlla che ogni riga abbia almeno nome e link.";
+        }
       } catch (e) {
         console.error(e);
-        document.getElementById("prodotti").innerHTML =
-          "<p>Errore nel caricare i prodotti. Controlla il link del foglio.</p>";
+        errBox.textContent = "Errore nel caricare i prodotti. Controlla link del foglio o riprova.";
       }
     }
 
