@@ -36,50 +36,65 @@
       font-size:0.9em;
     }
     .error { text-align:center; color:#c00; margin-top:20px; }
+    .debug { font-size:0.8em; color:#777; text-align:center; margin-top:10px; white-space:pre-wrap; }
   </style>
 </head>
 <body>
   <div class="wrap">
     <h1>Il Consiglio del Compratore</h1>
-    <p class="sub">Prodotti aggiornati dal mio foglio Google in automatico.</p>
+    <p class="sub">Prodotti caricati dal mio foglio Google in automatico.</p>
     <div id="prodotti" class="grid"></div>
     <div id="errore" class="error"></div>
+    <div id="debug" class="debug"></div>
   </div>
 
   <script>
-    const CSV_URL = "https://api.allorigins.win/raw?url=" + encodeURIComponent(
-      "https://docs.google.com/spreadsheets/d/e/2PACX-1vTZ7vqus97NYfJoXjHjjI6705eGKxtqWSUWiHI5vT-xPNNghy3Ie2IaQ2MQDZI53Q7dEYzPVHbeIGR9/pub?output=csv"
-    );
+    // CSV pubblico del tuo foglio (NON toccare se non cambia il link)
+    const RAW_SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTZ7vqus97NYfJoXjHjjI6705eGKxtqWSUWiHI5vT-xPNNghy3Ie2IaQ2MQDZI53Q7dEYzPVHbeIGR9/pub?output=csv";
+    const CSV_URL = "https://api.allorigins.win/raw?url=" + encodeURIComponent(RAW_SHEET_URL);
 
     async function caricaProdotti() {
       const errBox = document.getElementById("errore");
       const container = document.getElementById("prodotti");
+      const debugBox = document.getElementById("debug");
+
       try {
         const res = await fetch(CSV_URL);
         if (!res.ok) throw new Error("Fetch fallita: " + res.status);
         const text = await res.text();
 
-        const righe = text.trim().split("\n");
-        if (righe.length <= 1) {
-          errBox.textContent = "Nessun prodotto trovato nel foglio (controlla che ci siano righe sotto le intestazioni).";
+        // Debug: mostra le prime righe del CSV (così sappiamo che arriva)
+        const righeRaw = text.trim().split(/\r?\n/);
+        debugBox.textContent = "Righe CSV: " + righeRaw.length;
+
+        if (righeRaw.length <= 1) {
+          errBox.textContent = "Nessun prodotto nel foglio. Aggiungi righe sotto le intestazioni.";
           return;
         }
 
-        const header = righe.shift().split(",");
-        const idxNome = header.indexOf("nome");
-        const idxDesc = header.indexOf("descrizione");
-        const idxImg  = header.indexOf("immagine");
-        const idxLink = header.indexOf("link");
+        // Determina il separatore (virgola o punto e virgola)
+        const headerLine = righeRaw.shift();
+        const delimiter = headerLine.includes(";") ? ";" : ",";
+        const rawHeaders = headerLine.split(delimiter);
+        const headers = rawHeaders.map(h => h.trim().toLowerCase());
+
+        const idxNome = headers.indexOf("nome");
+        const idxDesc = headers.indexOf("descrizione");
+        const idxImg  = headers.indexOf("immagine");
+        const idxLink = headers.indexOf("link");
 
         if (idxNome < 0 || idxLink < 0) {
           errBox.textContent = "Intestazioni errate. Devono essere: nome, descrizione, immagine, link.";
+          debugBox.textContent += "\\nHeader letti: " + headers.join(" | ");
           return;
         }
 
         container.innerHTML = "";
-        righe.forEach(riga => {
+        let count = 0;
+
+        righeRaw.forEach(riga => {
           if (!riga.trim()) return;
-          const cols = riga.split(",");
+          const cols = riga.split(delimiter);
 
           const nome = (cols[idxNome] || "").trim();
           const desc = (cols[idxDesc] || "").trim();
@@ -97,14 +112,18 @@
             <a class="btn" href="${link}" target="_blank">Vedi su Amazon</a>
           `;
           container.appendChild(card);
+          count++;
         });
 
-        if (!container.innerHTML) {
+        if (count === 0) {
           errBox.textContent = "Nessun prodotto valido generato. Controlla che ogni riga abbia almeno nome e link.";
+        } else {
+          debugBox.textContent += "\\nProdotti generati: " + count;
         }
       } catch (e) {
         console.error(e);
-        errBox.textContent = "Errore nel caricare i prodotti. Controlla link del foglio o riprova.";
+        document.getElementById("errore").textContent =
+          "Errore nel caricare i prodotti. Controlla link del foglio o riprova.";
       }
     }
 
