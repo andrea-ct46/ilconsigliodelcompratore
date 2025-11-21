@@ -5,128 +5,166 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Il Consiglio del Compratore</title>
   <style>
-    body { font-family: system-ui, sans-serif; background:#fafafa; margin:0; }
-    .wrap { max-width:1100px; margin:0 auto; padding:32px 16px; }
-    h1 { text-align:center; margin-bottom:6px; }
-    p.sub { text-align:center; color:#555; margin-top:0; margin-bottom:24px; }
-    .grid { display:grid; gap:18px; grid-template-columns:1fr; }
-    @media(min-width:768px){ .grid{ grid-template-columns:repeat(3,1fr);} }
-    .card{
-      background:#fff;
-      border:1px solid #ddd;
-      border-radius:14px;
-      padding:14px;
-      box-shadow:0 4px 10px rgba(0,0,0,0.04);
-      text-align:center;
+    :root {
+      --bg: #f5f5f7;
+      --card: #ffffff;
+      --text: #1f1f23;
+      --muted: #5a5a62;
+      --accent: #ff9900;
     }
-    .card img{
-      width:100%;
-      height:150px;
-      object-fit:cover;
-      border-radius:10px;
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
     }
-    .btn{
-      background:#0066c0;
-      color:#fff;
-      padding:7px 14px;
-      border-radius:8px;
-      text-decoration:none;
-      display:inline-block;
-      margin-top:8px;
-      font-size:0.9em;
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 16px 60px;
     }
-    .error { text-align:center; color:#c00; margin-top:20px; }
-    .debug { font-size:0.8em; color:#777; text-align:center; margin-top:10px; white-space:pre-wrap; }
+    h1 { text-align: center; margin: 0 0 8px; }
+    .sub { text-align: center; color: var(--muted); margin: 0 0 28px; }
+    .grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 720px) {
+      .grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(0,0,0,0.08); }
+    .thumb {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border-radius: 12px;
+      object-fit: cover;
+      background: #f0f0f0;
+    }
+    .title { font-size: 1.05rem; margin: 0; }
+    .desc { color: var(--muted); margin: 0; line-height: 1.4; }
+    .btn {
+      align-self: flex-start;
+      background: var(--accent);
+      color: #111;
+      padding: 10px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 6px 16px rgba(255,153,0,0.3);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 10px 22px rgba(255,153,0,0.35); }
+    .status { text-align: center; color: var(--muted); margin-top: 12px; font-size: 0.95rem; }
+    .error { color: #c62828; text-align: center; margin-top: 10px; }
   </style>
 </head>
 <body>
   <div class="wrap">
     <h1>Il Consiglio del Compratore</h1>
-    <p class="sub">Prodotti caricati dal mio foglio Google in automatico.</p>
+    <p class="sub">Prodotti caricati automaticamente dal Google Sheet pubblicato come CSV.</p>
     <div id="prodotti" class="grid"></div>
-    <div id="errore" class="error"></div>
-    <div id="debug" class="debug"></div>
+    <p id="status" class="status"></p>
+    <p id="error" class="error"></p>
   </div>
 
   <script>
-    // CSV pubblico del tuo foglio (NON toccare se non cambia il link)
-    const RAW_SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTZ7vqus97NYfJoXjHjjI6705eGKxtqWSUWiHI5vT-xPNNghy3Ie2IaQ2MQDZI53Q7dEYzPVHbeIGR9/pub?output=csv";
-    const CSV_URL = "https://api.allorigins.win/raw?url=" 
-  + encodeURIComponent(RAW_SHEET_URL) 
-  + "&t=" + Date.now();
+    // Inserisci qui l'URL del CSV pubblico del Google Sheet (File > Condividi > Pubblica sul web > CSV)
+    const CSV_URL = "PASTE_YOUR_PUBLISHED_CSV_URL_HERE";
 
     async function caricaProdotti() {
-      const errBox = document.getElementById("errore");
       const container = document.getElementById("prodotti");
-      const debugBox = document.getElementById("debug");
+      const status = document.getElementById("status");
+      const error = document.getElementById("error");
+      status.textContent = "Caricamento in corso...";
+      error.textContent = "";
 
       try {
-        const res = await fetch(CSV_URL);
-        if (!res.ok) throw new Error("Fetch fallita: " + res.status);
+        const res = await fetch(CSV_URL + (CSV_URL.includes("?") ? "&" : "?") + "t=" + Date.now());
+        if (!res.ok) throw new Error("HTTP " + res.status);
         const text = await res.text();
-
-        // Debug: mostra le prime righe del CSV (così sappiamo che arriva)
-        const righeRaw = text.trim().split(/\r?\n/);
-        debugBox.textContent = "Righe CSV: " + righeRaw.length;
-
-        if (righeRaw.length <= 1) {
-          errBox.textContent = "Nessun prodotto nel foglio. Aggiungi righe sotto le intestazioni.";
+        const rows = parseCsv(text);
+        if (rows.length <= 1) {
+          status.textContent = "Nessun dato nel CSV.";
           return;
         }
 
-        // Determina il separatore (virgola o punto e virgola)
-        const headerLine = righeRaw.shift();
-        const delimiter = headerLine.includes(";") ? ";" : ",";
-        const rawHeaders = headerLine.split(delimiter);
-        const headers = rawHeaders.map(h => h.trim().toLowerCase());
-
-        const idxNome = headers.indexOf("nome");
+        const headers = rows.shift().map(h => h.trim().toLowerCase());
+        const idxTitle = headers.indexOf("titolo");
         const idxDesc = headers.indexOf("descrizione");
         const idxImg  = headers.indexOf("immagine");
         const idxLink = headers.indexOf("link");
 
-        if (idxNome < 0 || idxLink < 0) {
-          errBox.textContent = "Intestazioni errate. Devono essere: nome, descrizione, immagine, link.";
-          debugBox.textContent += "\\nHeader letti: " + headers.join(" | ");
-          return;
+        if (idxTitle === -1 || idxLink === -1) {
+          throw new Error("Intestazioni richieste: titolo, descrizione, immagine, link");
         }
 
         container.innerHTML = "";
         let count = 0;
 
-        righeRaw.forEach(riga => {
-          if (!riga.trim()) return;
-          const cols = riga.split(delimiter);
-
-          const nome = (cols[idxNome] || "").trim();
-          const desc = (cols[idxDesc] || "").trim();
-          const img  = (cols[idxImg]  || "").trim();
+        rows.forEach(cols => {
+          const titolo = (cols[idxTitle] || "").trim();
+          const descr = (cols[idxDesc] || "").trim();
+          const img = (cols[idxImg] || "").trim();
           const link = (cols[idxLink] || "").trim();
-
-          if (!nome || !link) return;
-
+          if (!titolo || !link) return;
           const card = document.createElement("div");
           card.className = "card";
           card.innerHTML = `
-            ${img ? `<img src="${img}" alt="${nome}">` : ""}
-            <h3>${nome}</h3>
-            <p>${desc || ""}</p>
-            <a class="btn" href="${link}" target="_blank">Vedi su Amazon</a>
+            ${img ? `<img class="thumb" src="${img}" alt="${titolo}">` : ''}
+            <h3 class="title">${titolo}</h3>
+            <p class="desc">${descr || ""}</p>
+            <a class="btn" href="${link}" target="_blank" rel="noopener">Vai su Amazon</a>
           `;
           container.appendChild(card);
           count++;
         });
 
-        if (count === 0) {
-          errBox.textContent = "Nessun prodotto valido generato. Controlla che ogni riga abbia almeno nome e link.";
-        } else {
-          debugBox.textContent += "\\nProdotti generati: " + count;
-        }
-      } catch (e) {
-        console.error(e);
-        document.getElementById("errore").textContent =
-          "Errore nel caricare i prodotti. Controlla link del foglio o riprova.";
+        status.textContent = count ? `Prodotti caricati: ${count}` : "Nessuna riga valida trovata.";
+      } catch (err) {
+        console.error(err);
+        status.textContent = "";
+        error.textContent = "Errore durante il caricamento del CSV. Controlla l'URL pubblicato.";
       }
+    }
+
+    function parseCsv(text) {
+      const lines = text.replace(/\r/g, "").split("\n").filter(Boolean);
+      return lines.map(line => {
+        const cells = [];
+        let current = "";
+        let inQuotes = false;
+        for (let i = 0; i < line.length; i++) {
+          const char = line[i];
+          if (char === '"') {
+            if (inQuotes && line[i + 1] === '"') {
+              current += '"';
+              i++;
+            } else {
+              inQuotes = !inQuotes;
+            }
+          } else if (char === ',' && !inQuotes) {
+            cells.push(current);
+            current = "";
+          } else {
+            current += char;
+          }
+        }
+        cells.push(current);
+        return cells;
+      });
     }
 
     caricaProdotti();
