@@ -40,45 +40,40 @@ body {
   margin: 0 auto;
 }
 
-.icc-brand {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.icc-logo-circle {
-  width: 44px;
-  height: 44px;
-  border-radius: 999px;
-  background: radial-gradient(circle at 30% 20%, #ffffff, #2563eb);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 1.2rem;
-  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.5);
-}
-
-.icc-brand-text {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-
-.icc-brand-name {
-  font-size: clamp(1.7rem, 3vw, 2.2rem);
-  font-weight: 700;
+.icc-wordmark {
+  margin: 0 0 4px;
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  font-weight: 750;
   letter-spacing: 0.02em;
+  position: relative;
+  display: inline-block;
+}
+
+.icc-wordmark span {
+  color: #2563eb;
+  position: relative;
+}
+
+.icc-wordmark span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #2563eb, #4f46e5);
+  opacity: 0.7;
+}
+
+.icc-tagline {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted);
 }
 
 .icc-brand-name span {
   color: #2563eb;
-}
-
-.icc-brand-tagline {
-  font-size: 0.9rem;
-  color: var(--muted);
 }
 
 .icc-header {
