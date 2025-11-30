@@ -1,136 +1,258 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Il Consiglio del Compratore</title>
-  <style>
-    body { font-family: system-ui, sans-serif; background:#fafafa; margin:0; }
-    .wrap { max-width:1100px; margin:0 auto; padding:32px 16px; }
-    h1 { text-align:center; margin-bottom:6px; }
-    p.sub { text-align:center; color:#555; margin-top:0; margin-bottom:24px; }
-    .grid { display:grid; gap:18px; grid-template-columns:1fr; }
-    @media(min-width:768px){ .grid{ grid-template-columns:repeat(3,1fr);} }
-    .card{
-      background:#fff;
-      border:1px solid #ddd;
-      border-radius:14px;
-      padding:14px;
-      box-shadow:0 4px 10px rgba(0,0,0,0.04);
-      text-align:center;
-    }
-    .card img{
-      width:100%;
-      height:150px;
-      object-fit:cover;
-      border-radius:10px;
-    }
-    .btn{
-      background:#0066c0;
-      color:#fff;
-      padding:7px 14px;
-      border-radius:8px;
-      text-decoration:none;
-      display:inline-block;
-      margin-top:8px;
-      font-size:0.9em;
-    }
-    .error { text-align:center; color:#c00; margin-top:20px; }
-    .debug { font-size:0.8em; color:#777; text-align:center; margin-top:10px; white-space:pre-wrap; }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="wrap">
-    <h1>Il Consiglio del Compratore</h1>
-    <p class="sub">Prodotti caricati dal mio foglio Google in automatico.</p>
-    <div id="prodotti" class="grid"></div>
-    <div id="errore" class="error"></div>
-    <div id="debug" class="debug"></div>
-  </div>
+  <header class="icc-header">
+    <div class="icc-header-inner">
+      <h1 class="icc-title">Il Consiglio del Compratore</h1>
+      <p class="icc-subtitle">
+        Prodotti selezionati dal mio foglio Google, aggiornati in automatico.
+      </p>
+    </div>
+  </header>
+
+  <main class="icc-main">
+    <!-- FILTRI -->
+    <section class="icc-filters">
+      <div class="icc-filters-left">
+        <div class="icc-filter">
+          <label for="search">Cerca</label>
+          <input id="search" type="text" placeholder="Cerca per nome..." />
+        </div>
+
+        <div class="icc-filter">
+          <label for="filter-category">Categoria</label>
+          <select id="filter-category">
+            <option value="">Tutte le categorie</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="icc-filters-right">
+        <div class="icc-filter">
+          <label for="price-min">Prezzo min (€)</label>
+          <input id="price-min" type="number" min="0" step="0.01" />
+        </div>
+
+        <div class="icc-filter">
+          <label for="price-max">Prezzo max (€)</label>
+          <input id="price-max" type="number" min="0" step="0.01" />
+        </div>
+
+        <button id="btn-apply" class="icc-btn primary">Applica filtri</button>
+        <button id="btn-reset" class="icc-btn ghost">Reset</button>
+      </div>
+    </section>
+
+    <!-- STATO / ERRORI -->
+    <p id="icc-status" class="icc-status"></p>
+    <p id="icc-error" class="icc-error"></p>
+
+    <!-- GRIGLIA PRODOTTI -->
+    <section id="product-grid" class="icc-grid"></section>
+  </main>
+
+  <footer class="icc-footer">
+    <p>© <span id="icc-year"></span> Il Consiglio del Compratore · Link affiliati Amazon</p>
+  </footer>
 
   <script>
-  // URL CSV pubblico del tuo Google Sheet
-  const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTZ7vqus97NYfJoXjHjjI6705eGKxtqWSUWiHI5vT-xPNNghy3Ie2IaQ2MQDZI53Q7dEYzPVHbeIGR9/pub?output=csv";
+    // 🔗 1) METTI QUI IL TUO LINK CSV PUBBLICATO (File → Pubblica sul web → CSV)
+    const SHEET_CSV_URL =
+      "https://docs.google.com/spreadsheets/d/e/2PACX-1vTZ7vqus97NYfJoXjHjjI6705eGKxtqWSUWiHI5vT-xPNNghy3Ie2IaQ2MQDZI53Q7dEYzPVHbeIGR9/pub?output=csv";
 
-  async function caricaProdotti() {
-    const errBox   = document.getElementById("errore");
-    const container = document.getElementById("prodotti");
-    const debugBox  = document.getElementById("debug");
+    // Array prodotti caricato dal CSV
+    let prodotti = [];
 
-    if (errBox)   errBox.textContent = "";
-    if (debugBox) debugBox.textContent = "";
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("icc-year").textContent = new Date().getFullYear();
+      caricaProdotti();
+      setupFiltri();
+    });
 
-    try {
-      // aggiungo t= per evitare cache
-      const res = await fetch(CSV_URL + (CSV_URL.includes("?") ? "&" : "?") + "t=" + Date.now());
-      if (!res.ok) throw new Error("HTTP " + res.status);
-
-      const text = await res.text();
-      const righeRaw = text.trim().split(/\r?\n/);
-
-      if (debugBox) debugBox.textContent = "Righe CSV: " + righeRaw.length;
-
-      if (righeRaw.length <= 1) {
-        if (errBox) errBox.textContent = "Nessun prodotto nel foglio. Aggiungi righe sotto le intestazioni.";
-        return;
-      }
-
-      // header
-      const headerLine = righeRaw.shift();
-      const delimiter = headerLine.includes(";") ? ";" : ",";
-      const headers = headerLine.split(delimiter).map(h => h.trim().toLowerCase());
-
-      const idxTitle = headers.indexOf("titolo");
-      const idxDesc  = headers.indexOf("descrizione");
-      const idxImg   = headers.indexOf("immagine");
-      const idxLink  = headers.indexOf("link");
-
-      if (idxTitle === -1 || idxLink === -1) {
-        if (errBox) errBox.textContent = "Intestazioni errate. Devono essere: asin, titolo, descrizione, immagine, link.";
-        if (debugBox) debugBox.textContent += "\nHeader letti: " + headers.join(" | ");
-        return;
-      }
-
-      container.innerHTML = "";
-      let count = 0;
-
-      righeRaw.forEach(riga => {
-        if (!riga.trim()) return;
-        const cols = riga.split(delimiter);
-
-        const titolo = (cols[idxTitle] || "").trim();
-        const desc   = (cols[idxDesc]  || "").trim();
-        const img    = (cols[idxImg]   || "").trim();
-        const link   = (cols[idxLink]  || "").trim();
-
-        if (!titolo || !link) return;
-
-        const card = document.createElement("div");
-        card.className = "card";
-        card.innerHTML = `
-          ${img ? `<img src="${img}" alt="${titolo}">` : ""}
-          <h3>${titolo}</h3>
-          <p>${desc || ""}</p>
-          <a class="btn" href="${link}" target="_blank" rel="noopener">Vedi su Amazon</a>
-        `;
-        container.appendChild(card);
-        count++;
+    function setupFiltri() {
+      document.getElementById("btn-apply").addEventListener("click", renderFiltrato);
+      document.getElementById("btn-reset").addEventListener("click", () => {
+        document.getElementById("search").value = "";
+        document.getElementById("filter-category").value = "";
+        document.getElementById("price-min").value = "";
+        document.getElementById("price-max").value = "";
+        renderProdotti(prodotti);
       });
+    }
 
-      if (count === 0 && errBox) {
-        errBox.textContent = "Nessun prodotto valido generato. Controlla che ogni riga abbia almeno titolo e link.";
-      } else if (debugBox) {
-        debugBox.textContent += "\nProdotti generati: " + count;
-      }
-    } catch (e) {
-      console.error(e);
-      if (errBox) {
-        errBox.textContent = "Errore durante il caricamento del CSV. Controlla l'URL pubblicato o riprova.";
+    async function caricaProdotti() {
+      const status = document.getElementById("icc-status");
+      const errorBox = document.getElementById("icc-error");
+      const grid = document.getElementById("product-grid");
+
+      status.textContent = "Caricamento prodotti in corso...";
+      errorBox.textContent = "";
+      grid.innerHTML = "";
+
+      try {
+        const url = SHEET_CSV_URL + (SHEET_CSV_URL.includes("?") ? "&" : "?") + "t=" + Date.now();
+        const res = await fetch(url);
+
+        if (!res.ok) {
+          throw new Error("HTTP " + res.status);
+        }
+
+        const text = await res.text();
+        const rows = parseCsv(text);
+        if (rows.length <= 1) {
+          status.textContent = "Nessun prodotto nel foglio.";
+          return;
+        }
+
+        const headers = rows.shift().map(h => h.trim().toLowerCase());
+        const idxTitle = headers.indexOf("titolo");
+        const idxDesc = headers.indexOf("descrizione");
+        const idxImg = headers.indexOf("immagine");
+        const idxLink = headers.indexOf("link");
+        const idxCat = headers.indexOf("categoria");
+        const idxPrice = headers.indexOf("prezzo");
+
+        if (idxTitle === -1 || idxLink === -1) {
+          throw new Error(
+            "Intestazioni mancanti. Servono almeno: titolo, link (più opzionali: descrizione, immagine, categoria, prezzo)."
+          );
+        }
+
+        prodotti = rows.map(cols => {
+          const titolo = (cols[idxTitle] || "").trim();
+          const descrizione = idxDesc >= 0 ? (cols[idxDesc] || "").trim() : "";
+          const immagine = idxImg >= 0 ? (cols[idxImg] || "").trim() : "";
+          const link = (cols[idxLink] || "").trim();
+          const categoria = idxCat >= 0 ? (cols[idxCat] || "").trim() : "";
+          const prezzoRaw = idxPrice >= 0 ? (cols[idxPrice] || "").trim() : "";
+          let prezzo = parseFloat(prezzoRaw.replace(",", "."));
+          if (isNaN(prezzo)) prezzo = null;
+
+          return { titolo, descrizione, immagine, link, categoria, prezzo };
+        }).filter(p => p.titolo && p.link);
+
+        if (!prodotti.length) {
+          status.textContent = "Nessun prodotto valido trovato.";
+          return;
+        }
+
+        popolaCategorie(prodotti);
+        renderProdotti(prodotti);
+        status.textContent = `Prodotti caricati: ${prodotti.length}`;
+      } catch (err) {
+        console.error(err);
+        status.textContent = "";
+        errorBox.textContent =
+          "Errore durante il caricamento del CSV. Controlla l'URL pubblicato o riprova.";
       }
     }
-  }
 
-  caricaProdotti();
-</script>
+    function popolaCategorie(prodotti) {
+      const select = document.getElementById("filter-category");
+      const categorie = new Set();
+
+      prodotti.forEach(p => {
+        if (p.categoria) categorie.add(p.categoria);
+      });
+
+      // svuota tranne "Tutte le categorie"
+      select.querySelectorAll("option:not(:first-child)").forEach(o => o.remove());
+
+      [...categorie].sort().forEach(cat => {
+        const opt = document.createElement("option");
+        opt.value = cat;
+        opt.textContent = cat;
+        select.appendChild(opt);
+      });
+    }
+
+    function renderFiltrato() {
+      const search = document.getElementById("search").value.toLowerCase().trim();
+      const cat = document.getElementById("filter-category").value;
+      const min = parseFloat(document.getElementById("price-min").value.replace(",", "."));
+      const max = parseFloat(document.getElementById("price-max").value.replace(",", "."));
+
+      const filtrati = prodotti.filter(p => {
+        if (search && !p.titolo.toLowerCase().includes(search)) return false;
+        if (cat && p.categoria !== cat) return false;
+
+        if (!isNaN(min) && p.prezzo !== null && p.prezzo < min) return false;
+        if (!isNaN(max) && p.prezzo !== null && p.prezzo > max) return false;
+
+        return true;
+      });
+
+      renderProdotti(filtrati);
+      const status = document.getElementById("icc-status");
+      status.textContent = `Prodotti mostrati: ${filtrati.length} / ${prodotti.length}`;
+    }
+
+    function renderProdotti(lista) {
+      const grid = document.getElementById("product-grid");
+      grid.innerHTML = "";
+
+      lista.forEach(p => {
+        const card = document.createElement("article");
+        card.className = "icc-card";
+
+        card.innerHTML = `
+          ${p.immagine ? `<div class="icc-card-thumb"><img src="${p.immagine}" alt="${p.titolo}"></div>` : ""}
+          <div class="icc-card-body">
+            <h3 class="icc-card-title">${p.titolo}</h3>
+            ${p.categoria ? `<p class="icc-card-category">${p.categoria}</p>` : ""}
+            ${p.descrizione ? `<p class="icc-card-desc">${p.descrizione}</p>` : ""}
+            <div class="icc-card-footer">
+              ${
+                p.prezzo !== null
+                  ? `<span class="icc-card-price">${p.prezzo.toFixed(2)} €</span>`
+                  : `<span class="icc-card-price icc-card-price--na">Prezzo da verificare</span>`
+              }
+              <a href="${p.link}" target="_blank" rel="noopener" class="icc-btn primary small">
+                Vedi su Amazon
+              </a>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // Parser CSV semplice che gestisce virgolette e virgole
+    function parseCsv(text) {
+      const lines = text.replace(/\r/g, "").split("\n").filter(Boolean);
+      return lines.map(line => {
+        const cells = [];
+        let current = "";
+        let inQuotes = false;
+
+        for (let i = 0; i < line.length; i++) {
+          const char = line[i];
+
+          if (char === '"') {
+            if (inQuotes && line[i + 1] === '"') {
+              current += '"';
+              i++;
+            } else {
+              inQuotes = !inQuotes;
+            }
+          } else if (char === "," && !inQuotes) {
+            cells.push(current);
+            current = "";
+          } else {
+            current += char;
+          }
+        }
+
+        cells.push(current);
+        return cells;
+      });
+    }
+  </script>
 </body>
 </html>
