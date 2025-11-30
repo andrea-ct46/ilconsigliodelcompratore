@@ -49,87 +49,88 @@
   </div>
 
   <script>
-    // CSV pubblico del tuo foglio (NON toccare se non cambia il link)
-    const RAW_SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTZ7vqus97NYfJoXjHjjI6705eGKxtqWSUWiHI5vT-xPNNghy3Ie2IaQ2MQDZI53Q7dEYzPVHbeIGR9/pub?output=csv";
-    const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTZ7vqus97NYfJoXjHjjI6705eGKxtqWSUWiHI5vT-xPNNghy3Ie2IaQ2MQDZI53Q7dEYzPVHbeIGR9/pub?output=csv=" 
-  + encodeURIComponent(RAW_SHEET_URL) 
-  + "&t=" + Date.now();
+  // URL CSV pubblico del tuo Google Sheet
+  const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTZ7vqus97NYfJoXjHjjI6705eGKxtqWSUWiHI5vT-xPNNghy3Ie2IaQ2MQDZI53Q7dEYzPVHbeIGR9/pub?output=csv";
 
-    async function caricaProdotti() {
-      const errBox = document.getElementById("errore");
-      const container = document.getElementById("prodotti");
-      const debugBox = document.getElementById("debug");
+  async function caricaProdotti() {
+    const errBox   = document.getElementById("errore");
+    const container = document.getElementById("prodotti");
+    const debugBox  = document.getElementById("debug");
 
-      try {
-        const res = await fetch(CSV_URL);
-        if (!res.ok) throw new Error("Fetch fallita: " + res.status);
-        const text = await res.text();
+    if (errBox)   errBox.textContent = "";
+    if (debugBox) debugBox.textContent = "";
 
-        // Debug: mostra le prime righe del CSV (così sappiamo che arriva)
-        const righeRaw = text.trim().split(/\r?\n/);
-        debugBox.textContent = "Righe CSV: " + righeRaw.length;
+    try {
+      // aggiungo t= per evitare cache
+      const res = await fetch(CSV_URL + (CSV_URL.includes("?") ? "&" : "?") + "t=" + Date.now());
+      if (!res.ok) throw new Error("HTTP " + res.status);
 
-        if (righeRaw.length <= 1) {
-          errBox.textContent = "Nessun prodotto nel foglio. Aggiungi righe sotto le intestazioni.";
-          return;
-        }
+      const text = await res.text();
+      const righeRaw = text.trim().split(/\r?\n/);
 
-        // Determina il separatore (virgola o punto e virgola)
-        const headerLine = righeRaw.shift();
-        const delimiter = headerLine.includes(";") ? ";" : ",";
-        const rawHeaders = headerLine.split(delimiter);
-        const headers = rawHeaders.map(h => h.trim().toLowerCase());
+      if (debugBox) debugBox.textContent = "Righe CSV: " + righeRaw.length;
 
-        const idxNome = headers.indexOf("nome");
-        const idxDesc = headers.indexOf("descrizione");
-        const idxImg  = headers.indexOf("immagine");
-        const idxLink = headers.indexOf("link");
+      if (righeRaw.length <= 1) {
+        if (errBox) errBox.textContent = "Nessun prodotto nel foglio. Aggiungi righe sotto le intestazioni.";
+        return;
+      }
 
-        if (idxNome < 0 || idxLink < 0) {
-          errBox.textContent = "Intestazioni errate. Devono essere: nome, descrizione, immagine, link.";
-          debugBox.textContent += "\\nHeader letti: " + headers.join(" | ");
-          return;
-        }
+      // header
+      const headerLine = righeRaw.shift();
+      const delimiter = headerLine.includes(";") ? ";" : ",";
+      const headers = headerLine.split(delimiter).map(h => h.trim().toLowerCase());
 
-        container.innerHTML = "";
-        let count = 0;
+      const idxTitle = headers.indexOf("titolo");
+      const idxDesc  = headers.indexOf("descrizione");
+      const idxImg   = headers.indexOf("immagine");
+      const idxLink  = headers.indexOf("link");
 
-        righeRaw.forEach(riga => {
-          if (!riga.trim()) return;
-          const cols = riga.split(delimiter);
+      if (idxTitle === -1 || idxLink === -1) {
+        if (errBox) errBox.textContent = "Intestazioni errate. Devono essere: asin, titolo, descrizione, immagine, link.";
+        if (debugBox) debugBox.textContent += "\nHeader letti: " + headers.join(" | ");
+        return;
+      }
 
-          const nome = (cols[idxNome] || "").trim();
-          const desc = (cols[idxDesc] || "").trim();
-          const img  = (cols[idxImg]  || "").trim();
-          const link = (cols[idxLink] || "").trim();
+      container.innerHTML = "";
+      let count = 0;
 
-          if (!nome || !link) return;
+      righeRaw.forEach(riga => {
+        if (!riga.trim()) return;
+        const cols = riga.split(delimiter);
 
-          const card = document.createElement("div");
-          card.className = "card";
-          card.innerHTML = `
-            ${img ? `<img src="${img}" alt="${nome}">` : ""}
-            <h3>${nome}</h3>
-            <p>${desc || ""}</p>
-            <a class="btn" href="${link}" target="_blank">Vedi su Amazon</a>
-          `;
-          container.appendChild(card);
-          count++;
-        });
+        const titolo = (cols[idxTitle] || "").trim();
+        const desc   = (cols[idxDesc]  || "").trim();
+        const img    = (cols[idxImg]   || "").trim();
+        const link   = (cols[idxLink]  || "").trim();
 
-        if (count === 0) {
-          errBox.textContent = "Nessun prodotto valido generato. Controlla che ogni riga abbia almeno nome e link.";
-        } else {
-          debugBox.textContent += "\\nProdotti generati: " + count;
-        }
-      } catch (e) {
-        console.error(e);
-        document.getElementById("errore").textContent =
-          "Errore nel caricare i prodotti. Controlla link del foglio o riprova.";
+        if (!titolo || !link) return;
+
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          ${img ? `<img src="${img}" alt="${titolo}">` : ""}
+          <h3>${titolo}</h3>
+          <p>${desc || ""}</p>
+          <a class="btn" href="${link}" target="_blank" rel="noopener">Vedi su Amazon</a>
+        `;
+        container.appendChild(card);
+        count++;
+      });
+
+      if (count === 0 && errBox) {
+        errBox.textContent = "Nessun prodotto valido generato. Controlla che ogni riga abbia almeno titolo e link.";
+      } else if (debugBox) {
+        debugBox.textContent += "\nProdotti generati: " + count;
+      }
+    } catch (e) {
+      console.error(e);
+      if (errBox) {
+        errBox.textContent = "Errore durante il caricamento del CSV. Controlla l'URL pubblicato o riprova.";
       }
     }
+  }
 
-    caricaProdotti();
-  </script>
+  caricaProdotti();
+</script>
 </body>
 </html>
