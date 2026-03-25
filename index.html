@@ -4,6 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Il Consiglio del Compratore</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -13,18 +18,17 @@
       Il Consiglio del <span>Compratore</span>
     </h1>
     <p class="icc-tagline">
-      Consigli secchi, niente fuffa. Solo prodotti che hanno senso comprare.
+      Consigli secchi, niente fuffa. Solo prodotti che ha senso comprare.
     </p>
   </div>
 </header>
 
   <main class="icc-main">
-    <!-- FILTRI -->
     <section class="icc-filters">
       <div class="icc-filters-left">
         <div class="icc-filter">
-          <label for="search">Cerca</label>
-          <input id="search" type="text" placeholder="Cerca per nome..." />
+          <label for="search">Cerca prodotto</label>
+          <input id="search" type="text" placeholder="Es. Smartphone, Cuffie..." />
         </div>
 
         <div class="icc-filter">
@@ -38,24 +42,22 @@
       <div class="icc-filters-right">
         <div class="icc-filter">
           <label for="price-min">Prezzo min (€)</label>
-          <input id="price-min" type="number" min="0" step="0.01" />
+          <input id="price-min" type="number" min="0" step="0.01" placeholder="0" />
         </div>
 
         <div class="icc-filter">
           <label for="price-max">Prezzo max (€)</label>
-          <input id="price-max" type="number" min="0" step="0.01" />
+          <input id="price-max" type="number" min="0" step="0.01" placeholder="Nessun limite" />
         </div>
 
-        <button id="btn-apply" class="icc-btn primary">Applica filtri</button>
+        <button id="btn-apply" class="icc-btn primary">Cerca</button>
         <button id="btn-reset" class="icc-btn ghost">Reset</button>
       </div>
     </section>
 
-    <!-- STATO / ERRORI -->
     <p id="icc-status" class="icc-status"></p>
     <p id="icc-error" class="icc-error"></p>
 
-    <!-- GRIGLIA PRODOTTI -->
     <section id="product-grid" class="icc-grid"></section>
   </main>
 
@@ -64,11 +66,9 @@
   </footer>
 
   <script>
-    // 🔗 1) METTI QUI IL TUO LINK CSV PUBBLICATO (File → Pubblica sul web → CSV)
     const SHEET_CSV_URL =
       "https://docs.google.com/spreadsheets/d/e/2PACX-1vTZ7vqus97NYfJoXjHjjI6705eGKxtqWSUWiHI5vT-xPNNghy3Ie2IaQ2MQDZI53Q7dEYzPVHbeIGR9/pub?output=csv";
 
-    // Array prodotti caricato dal CSV
     let prodotti = [];
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -93,7 +93,7 @@
       const errorBox = document.getElementById("icc-error");
       const grid = document.getElementById("product-grid");
 
-      status.textContent = "Caricamento prodotti in corso...";
+      status.innerHTML = '<span class="loader"></span> Caricamento migliori prodotti...';
       errorBox.textContent = "";
       grid.innerHTML = "";
 
@@ -122,7 +122,7 @@
 
         if (idxTitle === -1 || idxLink === -1) {
           throw new Error(
-            "Intestazioni mancanti. Servono almeno: titolo, link (più opzionali: descrizione, immagine, categoria, prezzo)."
+            "Intestazioni mancanti. Servono almeno: titolo, link."
           );
         }
 
@@ -139,33 +139,22 @@
           return { titolo, descrizione, immagine, link, categoria, prezzo };
         }).filter(p => p.titolo && p.link);
 
-        if (!prodotti.length) {
-          status.textContent = "Nessun prodotto valido trovato.";
-          return;
-        }
-
         popolaCategorie(prodotti);
         renderProdotti(prodotti);
-        status.textContent = `Prodotti caricati: ${prodotti.length}`;
+        status.textContent = `${prodotti.length} prodotti trovati`;
       } catch (err) {
         console.error(err);
         status.textContent = "";
-        errorBox.textContent =
-          "Errore durante il caricamento del CSV. Controlla l'URL pubblicato o riprova.";
+        errorBox.textContent = "Errore durante il caricamento del CSV.";
       }
     }
 
     function popolaCategorie(prodotti) {
       const select = document.getElementById("filter-category");
       const categorie = new Set();
+      prodotti.forEach(p => { if (p.categoria) categorie.add(p.categoria); });
 
-      prodotti.forEach(p => {
-        if (p.categoria) categorie.add(p.categoria);
-      });
-
-      // svuota tranne "Tutte le categorie"
       select.querySelectorAll("option:not(:first-child)").forEach(o => o.remove());
-
       [...categorie].sort().forEach(cat => {
         const opt = document.createElement("option");
         opt.value = cat;
@@ -183,16 +172,14 @@
       const filtrati = prodotti.filter(p => {
         if (search && !p.titolo.toLowerCase().includes(search)) return false;
         if (cat && p.categoria !== cat) return false;
-
         if (!isNaN(min) && p.prezzo !== null && p.prezzo < min) return false;
         if (!isNaN(max) && p.prezzo !== null && p.prezzo > max) return false;
-
         return true;
       });
 
       renderProdotti(filtrati);
       const status = document.getElementById("icc-status");
-      status.textContent = `Prodotti mostrati: ${filtrati.length} / ${prodotti.length}`;
+      status.textContent = `Mostrando ${filtrati.length} di ${prodotti.length} prodotti`;
     }
 
     function renderProdotti(lista) {
@@ -204,19 +191,22 @@
         card.className = "icc-card";
 
         card.innerHTML = `
-          ${p.immagine ? `<div class="icc-card-thumb"><img src="${p.immagine}" alt="${p.titolo}"></div>` : ""}
+          ${p.immagine ? `
+          <div class="icc-card-thumb">
+            ${p.categoria ? `<span class="icc-badge">${p.categoria}</span>` : ""}
+            <img src="${p.immagine}" alt="${p.titolo}">
+          </div>` : ""}
           <div class="icc-card-body">
             <h3 class="icc-card-title">${p.titolo}</h3>
-            ${p.categoria ? `<p class="icc-card-category">${p.categoria}</p>` : ""}
             ${p.descrizione ? `<p class="icc-card-desc">${p.descrizione}</p>` : ""}
             <div class="icc-card-footer">
               ${
                 p.prezzo !== null
                   ? `<span class="icc-card-price">${p.prezzo.toFixed(2)} €</span>`
-                  : `<span class="icc-card-price icc-card-price--na">Prezzo da verificare</span>`
+                  : `<span class="icc-card-price icc-card-price--na">Prezzo su Amazon</span>`
               }
               <a href="${p.link}" target="_blank" rel="noopener" class="icc-btn primary small">
-                Vedi su Amazon
+                Vedi offerta
               </a>
             </div>
           </div>
@@ -225,32 +215,22 @@
       });
     }
 
-    // Parser CSV semplice che gestisce virgolette e virgole
     function parseCsv(text) {
       const lines = text.replace(/\r/g, "").split("\n").filter(Boolean);
       return lines.map(line => {
         const cells = [];
         let current = "";
         let inQuotes = false;
-
         for (let i = 0; i < line.length; i++) {
           const char = line[i];
-
           if (char === '"') {
-            if (inQuotes && line[i + 1] === '"') {
-              current += '"';
-              i++;
-            } else {
-              inQuotes = !inQuotes;
-            }
+            if (inQuotes && line[i + 1] === '"') { current += '"'; i++; } 
+            else { inQuotes = !inQuotes; }
           } else if (char === "," && !inQuotes) {
             cells.push(current);
             current = "";
-          } else {
-            current += char;
-          }
+          } else { current += char; }
         }
-
         cells.push(current);
         return cells;
       });
