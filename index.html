@@ -12,58 +12,70 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
 <header class="icc-header">
   <div class="icc-header-inner">
-    <h1 class="icc-wordmark">
-      Il Consiglio del <span>Compratore</span>
-    </h1>
-    <p class="icc-tagline">
-      Consigli secchi, niente fuffa. Solo prodotti che ha senso comprare.
-    </p>
+    <div class="icc-brand">
+      <h1 class="icc-wordmark">
+        Il Consiglio del <span>Compratore</span>
+      </h1>
+      <p class="icc-tagline">
+        Consigli secchi, niente fuffa.
+      </p>
+    </div>
+    
+    <button id="btn-toggle-filters" class="icc-btn accent-icon">Filtra Prodotti <i class="fas fa-filter"></i></button>
   </div>
 </header>
 
-  <main class="icc-main">
-    <section class="icc-filters">
-      <div class="icc-filters-left">
-        <div class="icc-filter">
-          <label for="search">Cerca prodotto</label>
-          <input id="search" type="text" placeholder="Es. Smartphone, Cuffie..." />
-        </div>
-
-        <div class="icc-filter">
-          <label for="filter-category">Categoria</label>
-          <select id="filter-category">
-            <option value="">Tutte le categorie</option>
-          </select>
-        </div>
+<div id="filter-drawer" class="icc-filter-drawer">
+  <div class="icc-filter-drawer-header">
+    <h2>Filtra e Cerca</h2>
+    <button id="btn-close-filters" class="icc-btn-close">×</button>
+  </div>
+  
+  <section class="icc-filters-drawer-body">
+    <div class="icc-filters-grid">
+      <div class="icc-filter">
+        <label for="search">Nome Prodotto</label>
+        <input id="search" type="text" placeholder="Es. Smartphone, Cuffie..." />
       </div>
 
-      <div class="icc-filters-right">
-        <div class="icc-filter">
-          <label for="price-min">Prezzo min (€)</label>
-          <input id="price-min" type="number" min="0" step="0.01" placeholder="0" />
-        </div>
-
-        <div class="icc-filter">
-          <label for="price-max">Prezzo max (€)</label>
-          <input id="price-max" type="number" min="0" step="0.01" placeholder="Nessun limite" />
-        </div>
-
-        <button id="btn-apply" class="icc-btn primary">Cerca</button>
-        <button id="btn-reset" class="icc-btn ghost">Reset</button>
+      <div class="icc-filter">
+        <label for="filter-category">Categoria</label>
+        <select id="filter-category">
+          <option value="">Tutte le categorie</option>
+        </select>
       </div>
-    </section>
 
-    <p id="icc-status" class="icc-status"></p>
-    <p id="icc-error" class="icc-error"></p>
+      <div class="icc-filter icc-filter-range">
+        <label>Range Prezzo (€)</label>
+        <div class="price-inputs">
+          <input id="price-min" type="number" min="0" step="0.01" placeholder="Min" />
+          <span class="range-separator"></span>
+          <input id="price-max" type="number" min="0" step="0.01" placeholder="Max" />
+        </div>
+      </div>
+    </div>
+    
+    <div class="icc-filter-actions">
+      <button id="btn-apply" class="icc-btn primary">Applica Filtri</button>
+      <button id="btn-reset" class="icc-btn ghost">Reset</button>
+    </div>
+  </section>
+</div>
+<div id="filter-backdrop" class="icc-filter-backdrop"></div>
 
-    <section id="product-grid" class="icc-grid"></section>
-  </main>
+<main class="icc-main">
+  <p id="icc-status" class="icc-status"></p>
+  <p id="icc-error" class="icc-error"></p>
 
-  <footer class="icc-footer">
-    <p>© <span id="icc-year"></span> Il Consiglio del Compratore · Link affiliati Amazon</p>
-  </footer>
+  <section id="product-grid" class="icc-grid"></section>
+</main>
+
+<footer class="icc-footer">
+  <p>© <span id="icc-year"></span> Il Consiglio del Compratore · Link affiliati Amazon</p>
+</footer>
 
   <script>
     const SHEET_CSV_URL =
@@ -78,13 +90,45 @@
     });
 
     function setupFiltri() {
-      document.getElementById("btn-apply").addEventListener("click", renderFiltrato);
+      const drawer = document.getElementById("filter-drawer");
+      const backdrop = document.getElementById("filter-backdrop");
+      const btnToggle = document.getElementById("btn-toggle-filters");
+      const btnClose = document.getElementById("btn-close-filters");
+
+      // Gestione apertura/chiusura drawer (solo da mobile)
+      const isMobile = () => window.innerWidth < 960;
+      
+      btnToggle.addEventListener("click", () => {
+        if(isMobile()){
+          drawer.classList.add('open');
+          backdrop.classList.add('open');
+        } else {
+          renderFiltrato();
+        }
+      });
+      
+      const closeDrawer = () => {
+        drawer.classList.remove('open');
+        backdrop.classList.remove('open');
+      };
+      
+      btnClose.addEventListener("click", closeDrawer);
+      backdrop.addEventListener("click", closeDrawer);
+      document.addEventListener("keydown", (e) => {
+        if(e.key === "Escape" && drawer.classList.contains('open')) closeDrawer();
+      });
+
+      document.getElementById("btn-apply").addEventListener("click", () => {
+        renderFiltrato();
+        if(isMobile()) closeDrawer();
+      });
       document.getElementById("btn-reset").addEventListener("click", () => {
         document.getElementById("search").value = "";
         document.getElementById("filter-category").value = "";
         document.getElementById("price-min").value = "";
         document.getElementById("price-max").value = "";
         renderProdotti(prodotti);
+        if(isMobile()) closeDrawer();
       });
     }
 
@@ -119,11 +163,10 @@
         const idxLink = headers.indexOf("link");
         const idxCat = headers.indexOf("categoria");
         const idxPrice = headers.indexOf("prezzo");
+        const idxFeatured = headers.indexOf("featured"); // NUOVA COLONNA
 
         if (idxTitle === -1 || idxLink === -1) {
-          throw new Error(
-            "Intestazioni mancanti. Servono almeno: titolo, link."
-          );
+          throw new Error("Intestazioni mancanti. Servono almeno: titolo, link.");
         }
 
         prodotti = rows.map(cols => {
@@ -133,10 +176,12 @@
           const link = (cols[idxLink] || "").trim();
           const categoria = idxCat >= 0 ? (cols[idxCat] || "").trim() : "";
           const prezzoRaw = idxPrice >= 0 ? (cols[idxPrice] || "").trim() : "";
+          const featured = idxFeatured >= 0 ? (cols[idxFeatured] || "").trim().toLowerCase() === "true" : false; // NUOVO
+
           let prezzo = parseFloat(prezzoRaw.replace(",", "."));
           if (isNaN(prezzo)) prezzo = null;
 
-          return { titolo, descrizione, immagine, link, categoria, prezzo };
+          return { titolo, descrizione, immagine, link, categoria, prezzo, featured };
         }).filter(p => p.titolo && p.link);
 
         popolaCategorie(prodotti);
@@ -186,14 +231,18 @@
       const grid = document.getElementById("product-grid");
       grid.innerHTML = "";
 
+      // Ordiniamo mettendo i "featured" per primi
+      lista.sort((a,b) => (b.featured === a.featured)? 0 : b.featured? 1 : -1);
+
       lista.forEach(p => {
         const card = document.createElement("article");
-        card.className = "icc-card";
+        // Aggiungiamo una classe speciale per i prodotti featured
+        card.className = `icc-card ${p.featured ? 'icc-card-featured' : ''}`;
 
         card.innerHTML = `
           ${p.immagine ? `
           <div class="icc-card-thumb">
-            ${p.categoria ? `<span class="icc-badge">${p.categoria}</span>` : ""}
+            ${p.featured ? `<span class="icc-badge featured">TOP 🔥</span>` : (p.categoria ? `<span class="icc-badge">${p.categoria}</span>` : "")}
             <img src="${p.immagine}" alt="${p.titolo}">
           </div>` : ""}
           <div class="icc-card-body">
