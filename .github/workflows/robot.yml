@@ -1,0 +1,32 @@
+name: Robot Prezzi Amazon
+
+on:
+  schedule:
+    - cron: '0 3 * * *' # La sveglia: tutti i giorni alle 03:00 di notte
+  workflow_dispatch: # Il pulsante magico per farlo partire a mano quando vuoi tu
+
+jobs:
+  aggiorna-sito:
+    runs-on: ubuntu-latest # GitHub accende un computer Linux virtuale
+    steps:
+    - name: Scarica il sito
+      uses: actions/checkout@v3
+
+    - name: Prepara Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Installa strumenti
+      run: pip install requests beautifulsoup4
+
+    - name: Fai partire lo Scraper
+      run: python scraper.py
+
+    - name: Salva i nuovi dati sul sito
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "Robot del Compratore"
+        git add dati.json
+        git commit -m "Aggiornati prezzi e prodotti" || echo "Nessuna modifica da salvare"
+        git push
