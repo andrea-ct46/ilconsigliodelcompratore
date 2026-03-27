@@ -61,7 +61,6 @@
 </footer>
 
 <script>
-  const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTZ7vqus97NYfJoXjHjjI6705eGKxtqWSUWiHI5vT-xPNNghy3Ie2IaQ2MQDZI53Q7dEYzPVHbeIGR9/pub?output=csv";
   let prodotti = [];
 
   document.addEventListener("DOMContentLoaded", () => {
@@ -73,16 +72,13 @@
   function setupFiltri() {
     const applicaFiltri = () => renderFiltrato();
     
-    // Attiva la ricerca sia col bottone "Cerca" che "Filtra"
     document.getElementById("btn-apply-search").addEventListener("click", applicaFiltri);
     document.getElementById("btn-apply-price").addEventListener("click", applicaFiltri);
     
-    // Ricerca automatica premendo Invio nella barra di ricerca
     document.getElementById("search").addEventListener("keypress", function(e) {
       if (e.key === 'Enter') applicaFiltri();
     });
     
-    // Cambiando categoria si aggiorna subito
     document.getElementById("filter-category").addEventListener("change", applicaFiltri);
 
     document.getElementById("btn-reset").addEventListener("click", () => {
@@ -104,46 +100,24 @@
     grid.innerHTML = "";
 
     try {
-      const url = SHEET_CSV_URL + (SHEET_CSV_URL.includes("?") ? "&" : "?") + "t=" + Date.now();
-      const res = await fetch(url);
+      // Legge i dati freschi scaricati dal Robot
+      const res = await fetch('dati.json?t=' + Date.now());
       if (!res.ok) throw new Error("HTTP " + res.status);
       
-      const text = await res.text();
-      const rows = parseCsv(text);
-      if (rows.length <= 1) { status.textContent = "Catalogo vuoto."; return; }
+      prodotti = await res.json();
 
-      const headers = rows.shift().map(h => h.trim().toLowerCase());
-      const idxTitle = headers.indexOf("titolo");
-      const idxDesc = headers.indexOf("descrizione");
-      const idxImg = headers.indexOf("immagine");
-      const idxLink = headers.indexOf("link");
-      const idxCat = headers.indexOf("categoria");
-      const idxPrice = headers.indexOf("prezzo");
-      const idxFeatured = headers.indexOf("featured");
-
-      if (idxTitle === -1 || idxLink === -1) throw new Error("Intestazioni mancanti. Servono: titolo, link.");
-
-      prodotti = rows.map(cols => {
-        const titolo = (cols[idxTitle] || "").trim();
-        const descrizione = idxDesc >= 0 ? (cols[idxDesc] || "").trim() : "";
-        const immagine = idxImg >= 0 ? (cols[idxImg] || "").trim() : "";
-        const link = (cols[idxLink] || "").trim();
-        const categoria = idxCat >= 0 ? (cols[idxCat] || "").trim() : "";
-        const prezzoRaw = idxPrice >= 0 ? (cols[idxPrice] || "").trim() : "";
-        const featured = idxFeatured >= 0 ? (cols[idxFeatured] || "").trim().toLowerCase() === "true" : false;
-        
-        let prezzo = parseFloat(prezzoRaw.replace(",", "."));
-        if (isNaN(prezzo)) prezzo = null;
-
-        return { titolo, descrizione, immagine, link, categoria, prezzo, featured };
-      }).filter(p => p.titolo && p.link);
+      if (!prodotti || prodotti.length === 0) { 
+        status.textContent = "Nessun prodotto trovato."; 
+        return; 
+      }
 
       popolaCategorie(prodotti);
       renderProdotti(prodotti);
+      status.textContent = `${prodotti.length} prodotti trovati`;
     } catch (err) {
       console.error(err);
       status.textContent = "0 prodotti";
-      errorBox.textContent = "Errore di connessione al catalogo.";
+      errorBox.textContent = "In attesa del primo aggiornamento. Torna tra 1 minuto!";
     }
   }
 
@@ -176,14 +150,15 @@
     });
 
     renderProdotti(filtrati);
+    const status = document.getElementById("icc-status");
+    status.textContent = `${filtrati.length} prodotti trovati`;
   }
 
   function renderProdotti(lista) {
     const grid = document.getElementById("product-grid");
-    const status = document.getElementById("icc-status");
     grid.innerHTML = "";
-    status.textContent = `${lista.length} prodotti trovati`;
 
+    // Ordina prima i prodotti In Evidenza (TOP)
     lista.sort((a,b) => (b.featured === a.featured)? 0 : b.featured? 1 : -1);
 
     lista.forEach(p => {
@@ -212,27 +187,6 @@
         </div>
       `;
       grid.appendChild(card);
-    });
-  }
-
-  function parseCsv(text) {
-    const lines = text.replace(/\r/g, "").split("\n").filter(Boolean);
-    return lines.map(line => {
-      const cells = [];
-      let current = "";
-      let inQuotes = false;
-      for (let i = 0; i < line.length; i++) {
-        const char = line[i];
-        if (char === '"') {
-          if (inQuotes && line[i + 1] === '"') { current += '"'; i++; } 
-          else { inQuotes = !inQuotes; }
-        } else if (char === "," && !inQuotes) {
-          cells.push(current);
-          current = "";
-        } else { current += char; }
-      }
-      cells.push(current);
-      return cells;
     });
   }
 </script>
