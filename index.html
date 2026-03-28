@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Il Consiglio del Compratore - Store</title>
+  <title>Il Consiglio del Compratore</title>
   
-  <meta name="description" content="Il Consiglio del Compratore: guide all'acquisto, recensioni e consigli secchi sui migliori prodotti di elettronica, informatica e molto altro. Scopri le migliori offerte." />
+  <meta name="description" content="Il Consiglio del Compratore: recensioni oneste, consigli secchi e guide all'acquisto per farti scegliere i migliori prodotti di elettronica, informatica e molto altro." />
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,38 +17,33 @@
 
 <header class="store-header">
   <div class="store-header-top">
-    <div class="store-logo">
-      <h1>Il Consiglio del <span>Compratore</span></h1>
+    <div class="store-logo" style="margin: 0 auto;">
+      <a href="index.html">
+        <img src="logo.png" alt="Il Consiglio del Compratore - Logo" style="max-height: 80px; max-width: 100%; height: auto; width: auto; display: block;">
+      </a>
     </div>
   </div>
   
   <div class="store-search-bar">
-    <select id="filter-category" class="search-select">
-      <option value="">Tutte le categorie</option>
-    </select>
-    <input id="search" type="text" class="search-input" placeholder="Cerca prodotto, marca..." />
+    <input id="search" type="text" class="search-input" placeholder="Cerca prodotto, marca, o consiglio..." />
     <button id="btn-apply-search" class="search-btn">Cerca</button>
   </div>
 </header>
 
 <main class="store-main">
 
-  <div style="padding: 12px 16px; margin-bottom: 20px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 6px; color: #4b5563; font-size: 0.9rem; line-height: 1.5;">
-    <h2 style="font-size: 1.05rem; color: #111827; margin: 0 0 8px;">Migliori offerte e guide all'acquisto</h2>
-    <p style="margin: 0;">Benvenuto su Il Consiglio del Compratore. Selezioniamo quotidianamente i migliori prodotti sul mercato per offrirti consigli diretti e farti risparmiare tempo e denaro. Esplora il nostro catalogo aggiornato con le migliori occasioni del momento.</p>
+  <div class="intro-box">
+    <h2>Consigli secchi, recensioni e migliori prezzi</h2>
+    <p>Selezioniamo e recensiamo quotidianamente i migliori prodotti sul mercato per offrirti consigli diretti e farti risparmiare tempo. Esplora le nostre schede e trova i migliori consigli del momento.</p>
   </div>
 
+  <nav class="category-bar" id="category-bar">
+    <button class="cat-btn active" data-cat="">Tutti</button>
+    </nav>
+
   <div class="store-toolbar">
-    <div class="toolbar-results" id="icc-status">Caricamento catalogo...</div>
-    
-    <div class="toolbar-filters">
-      <label>Prezzo:</label>
-      <input id="price-min" type="number" min="0" step="0.01" placeholder="Min €" class="price-input" />
-      <span>-</span>
-      <input id="price-max" type="number" min="0" step="0.01" placeholder="Max €" class="price-input" />
-      <button id="btn-apply-price" class="btn-filter">Filtra</button>
-      <button id="btn-reset" class="btn-reset">Reset</button>
-    </div>
+    <div class="toolbar-results" id="icc-status">Caricamento consigli...</div>
+    <button id="btn-reset" class="btn-reset">Azzera filtri</button>
   </div>
 
   <p id="icc-error" class="icc-error"></p>
@@ -62,6 +57,7 @@
 
 <script>
   let prodotti = [];
+  let currentCategory = "";
 
   document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("icc-year").textContent = new Date().getFullYear();
@@ -73,20 +69,20 @@
     const applicaFiltri = () => renderFiltrato();
     
     document.getElementById("btn-apply-search").addEventListener("click", applicaFiltri);
-    document.getElementById("btn-apply-price").addEventListener("click", applicaFiltri);
     
     document.getElementById("search").addEventListener("keypress", function(e) {
       if (e.key === 'Enter') applicaFiltri();
     });
-    
-    document.getElementById("filter-category").addEventListener("change", applicaFiltri);
 
     document.getElementById("btn-reset").addEventListener("click", () => {
       document.getElementById("search").value = "";
-      document.getElementById("filter-category").value = "";
-      document.getElementById("price-min").value = "";
-      document.getElementById("price-max").value = "";
+      currentCategory = "";
+      // Resetta i bottoni
+      document.querySelectorAll(".cat-btn").forEach(b => b.classList.remove("active"));
+      document.querySelector('.cat-btn[data-cat=""]').classList.add("active");
+      
       renderProdotti(prodotti);
+      document.getElementById("icc-status").textContent = `${prodotti.length} consigli trovati`;
     });
   }
 
@@ -95,70 +91,77 @@
     const errorBox = document.getElementById("icc-error");
     const grid = document.getElementById("product-grid");
 
-    status.textContent = 'Caricamento catalogo...';
+    status.textContent = 'Caricamento consigli...';
     errorBox.textContent = "";
     grid.innerHTML = "";
 
     try {
-      // Legge i dati freschi scaricati dal Robot
       const res = await fetch('dati.json?t=' + Date.now());
       if (!res.ok) throw new Error("HTTP " + res.status);
       
       prodotti = await res.json();
 
       if (!prodotti || prodotti.length === 0) { 
-        status.textContent = "Nessun prodotto trovato."; 
+        status.textContent = "Nessun consiglio trovato."; 
         return; 
       }
 
       popolaCategorie(prodotti);
       renderProdotti(prodotti);
-      status.textContent = `${prodotti.length} prodotti trovati`;
+      status.textContent = `${prodotti.length} consigli trovati`;
     } catch (err) {
       console.error(err);
-      status.textContent = "0 prodotti";
+      status.textContent = "0 consigli";
       errorBox.textContent = "In attesa del primo aggiornamento. Torna tra 1 minuto!";
     }
   }
 
   function popolaCategorie(prodotti) {
-    const select = document.getElementById("filter-category");
-    const categorie = new Set();
-    prodotti.forEach(p => { if (p.categoria) categorie.add(p.categoria); });
+    const bar = document.getElementById("category-bar");
+    const tuttiBtn = bar.querySelector('[data-cat=""]');
+    bar.innerHTML = "";
+    bar.appendChild(tuttiBtn);
 
-    select.querySelectorAll("option:not(:first-child)").forEach(o => o.remove());
+    const categorie = new Set();
+    prodotti.forEach(p => { if (p.categoria && p.categoria !== "Generico") categorie.add(p.categoria); });
+
     [...categorie].sort().forEach(cat => {
-      const opt = document.createElement("option");
-      opt.value = cat;
-      opt.textContent = cat;
-      select.appendChild(opt);
+      const btn = document.createElement("button");
+      btn.className = "cat-btn";
+      btn.dataset.cat = cat;
+      btn.textContent = cat;
+      bar.appendChild(btn);
+    });
+
+    // Aggiungi click listener a tutti i bottoni
+    bar.querySelectorAll(".cat-btn").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        bar.querySelectorAll(".cat-btn").forEach(b => b.classList.remove("active"));
+        e.target.classList.add("active");
+        currentCategory = e.target.dataset.cat;
+        renderFiltrato();
+      });
     });
   }
 
   function renderFiltrato() {
     const search = document.getElementById("search").value.toLowerCase().trim();
-    const cat = document.getElementById("filter-category").value;
-    const min = parseFloat(document.getElementById("price-min").value.replace(",", "."));
-    const max = parseFloat(document.getElementById("price-max").value.replace(",", "."));
 
     const filtrati = prodotti.filter(p => {
       if (search && !p.titolo.toLowerCase().includes(search)) return false;
-      if (cat && p.categoria !== cat) return false;
-      if (!isNaN(min) && p.prezzo !== null && p.prezzo < min) return false;
-      if (!isNaN(max) && p.prezzo !== null && p.prezzo > max) return false;
+      if (currentCategory && p.categoria !== currentCategory) return false;
       return true;
     });
 
     renderProdotti(filtrati);
     const status = document.getElementById("icc-status");
-    status.textContent = `${filtrati.length} prodotti trovati`;
+    status.textContent = `${filtrati.length} consigli trovati`;
   }
 
   function renderProdotti(lista) {
     const grid = document.getElementById("product-grid");
     grid.innerHTML = "";
 
-    // Ordina prima i prodotti In Evidenza (TOP)
     lista.sort((a,b) => (b.featured === a.featured)? 0 : b.featured? 1 : -1);
 
     lista.forEach(p => {
@@ -173,12 +176,12 @@
         </div>` : ""}
         
         <div class="store-card-content">
-          <div class="store-card-category">${p.categoria || "Generico"}</div>
+          <div class="store-card-category">${p.categoria || "Prodotto"}</div>
           <h3 class="store-card-title" title="${p.titolo}">${p.titolo}</h3>
           
           <div class="store-card-bottom">
             <div class="store-card-price">
-              ${p.prezzo !== null ? `€ <span>${p.prezzo.toFixed(2).replace('.', ',')}</span>` : `<span class="no-price">Vedi su sito</span>`}
+              ${p.prezzo !== null ? `€ <span>${p.prezzo.toFixed(2).replace('.', ',')}</span>` : `<span class="no-price">Vedi offerta</span>`}
             </div>
             <a href="${p.link}" target="_blank" rel="noopener" class="store-btn-buy">
               Vedi offerta
