@@ -25,14 +25,21 @@ for line in lines:
     print(f"Sto leggendo: {url}")
     
     try:
-        # Pausa per sembrare un umano e non farsi bloccare da Amazon
+        # Pausa per sembrare un umano
         time.sleep(2) 
         response = requests.get(url, headers=headers)
         soup = BeautifulSoup(response.content, 'html.parser')
 
         # Cerca Titolo
         titolo_elem = soup.find(id='productTitle')
-        titolo = titolo_elem.text.strip() if titolo_elem else "Titolo non trovato"
+        
+        # TRUCCO ANTIBLOCCO: Se non trova il titolo, significa che Amazon ha bloccato la pagina.
+        # In questo caso saltiamo il prodotto per non mettere card vuote sul sito!
+        if not titolo_elem:
+            print(f"-> Amazon ha bloccato la lettura di questo link. Lo salto.")
+            continue # Passa al link successivo
+
+        titolo = titolo_elem.text.strip()
 
         # Cerca Prezzo
         prezzo = None
@@ -56,9 +63,9 @@ for line in lines:
             "featured": False
         })
     except Exception as e:
-        print(f"Errore: {e}")
+        print(f"Errore su {url}: {e}")
 
-# Salva tutto nel file che leggerà il sito
+# Salva tutto nel file
 with open('dati.json', 'w', encoding='utf-8') as f:
     json.dump(prodotti, f, ensure_ascii=False, indent=2)
 print("Finito! Dati salvati con successo.")
