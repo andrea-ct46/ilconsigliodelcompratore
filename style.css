@@ -1,327 +1,198 @@
+
 :root {
   --primary: #2563eb;
   --primary-hover: #1d4ed8;
-  --bg-color: #f1f2f6; /* Grigio chiaro tipico degli e-commerce */
+  --bg-color: #f8fafc; /* Grigio-azzurrino molto chiaro e moderno */
   --card-bg: #ffffff;
-  --text-main: #111827;
-  --text-muted: #6b7280;
-  --border-color: #e5e7eb;
-  --price-color: #b91c1c; /* Rosso scuro per il prezzo, attira l'occhio */
-  --radius: 6px; /* Angoli poco arrotondati, molto più tech/store */
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --price-color: #0f172a; 
+  --radius: 12px; /* Angoli più morbidi per un look premium */
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
-}
+*, *::before, *::after { box-sizing: border-box; }
 
 body {
-  margin: 0;
-  padding: 0;
+  margin: 0; padding: 0;
   font-family: 'Inter', system-ui, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-main);
   -webkit-font-smoothing: antialiased;
 }
 
-/* HEADER E-COMMERCE */
+/* HEADER */
 .store-header {
   background-color: #ffffff;
   border-bottom: 1px solid var(--border-color);
-  padding: 12px 16px 16px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+  padding: 16px;
+  position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
 }
 
-.store-header-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-}
+.store-header-top { margin-bottom: 16px; text-align: center; }
 
-.store-logo h1 {
-  margin: 0;
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: var(--text-main);
-  letter-spacing: -0.5px;
-}
-
-.store-logo span {
-  color: var(--primary);
-}
-
-/* BARRA DI RICERCA (Stile Amazon/ePrice) */
+/* BARRA DI RICERCA MODERNA */
 .store-search-bar {
   display: flex;
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
-  border: 2px solid var(--primary);
-  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+  border-radius: 100px; /* Completamente arrotondata */
   overflow: hidden;
-  height: 44px;
+  height: 48px;
+  background: var(--bg-color);
+  transition: border-color 0.2s;
 }
 
-.search-select {
-  background: #f9fafb;
-  border: none;
-  border-right: 1px solid var(--border-color);
-  padding: 0 10px;
-  font-size: 0.85rem;
-  color: var(--text-main);
-  outline: none;
-  cursor: pointer;
-  max-width: 120px;
+.store-search-bar:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 .search-input {
-  flex: 1;
-  border: none;
-  padding: 0 12px;
-  font-size: 1rem;
-  outline: none;
-  min-width: 0; /* Previene overflow su mobile */
+  flex: 1; border: none; background: transparent;
+  padding: 0 20px; font-size: 1rem; outline: none;
+  color: var(--text-main);
 }
 
 .search-btn {
-  background-color: var(--primary);
-  color: white;
-  border: none;
-  padding: 0 20px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: background 0.2s;
+  background-color: var(--primary); color: white;
+  border: none; padding: 0 24px; font-weight: 600;
+  font-size: 0.95rem; cursor: pointer; transition: background 0.2s;
 }
 
-.search-btn:hover {
-  background-color: var(--primary-hover);
-}
+.search-btn:hover { background-color: var(--primary-hover); }
 
 /* MAIN CONTENT */
-.store-main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 16px;
+.store-main { max-width: 1200px; margin: 0 auto; padding: 20px 16px; }
+
+/* BOX INTRODUTTIVO */
+.intro-box {
+  padding: 16px 20px; margin-bottom: 24px;
+  background: #ffffff; border: 1px solid var(--border-color);
+  border-radius: var(--radius); color: var(--text-muted);
+  font-size: 0.95rem; line-height: 1.6;
+}
+.intro-box h2 { font-size: 1.2rem; color: var(--text-main); margin: 0 0 8px; }
+.intro-box p { margin: 0; }
+
+/* NUOVA BARRA CATEGORIE SCORREVOLE */
+.category-bar {
+  display: flex; gap: 10px; overflow-x: auto;
+  padding: 4px 0 16px 0; margin-bottom: 8px;
+  scrollbar-width: none; /* Nasconde scrollbar Firefox */
+  -ms-overflow-style: none; /* IE e Edge */
+}
+.category-bar::-webkit-scrollbar { display: none; } /* Safari e Chrome */
+
+.cat-btn {
+  background-color: #ffffff; color: var(--text-muted);
+  border: 1px solid var(--border-color);
+  padding: 10px 20px; border-radius: 100px;
+  font-size: 0.9rem; font-weight: 600; cursor: pointer;
+  white-space: nowrap; transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02);
 }
 
-/* BARRA FILTRI E RISULTATI */
+.cat-btn:hover { border-color: #cbd5e1; color: var(--text-main); }
+
+.cat-btn.active {
+  background-color: var(--text-main); color: #ffffff;
+  border-color: var(--text-main);
+}
+
+/* BARRA TOOLBAR (Risultati e Reset) */
 .store-toolbar {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  background: var(--card-bg);
-  padding: 12px;
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius);
-  margin-bottom: 20px;
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 24px; padding: 0 4px;
 }
-
-.toolbar-results {
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: var(--text-main);
-}
-
-.toolbar-filters {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  font-size: 0.85rem;
-}
-
-.price-input {
-  width: 70px;
-  padding: 6px;
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
-  font-size: 0.85rem;
-  outline: none;
-}
-
-.price-input:focus { border-color: var(--primary); }
-
-.btn-filter, .btn-reset {
-  padding: 6px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: 500;
-  font-size: 0.85rem;
-  border: 1px solid var(--border-color);
-}
-
-.btn-filter {
-  background: var(--primary);
-  color: white;
-  border-color: var(--primary);
-}
+.toolbar-results { font-weight: 600; font-size: 0.95rem; color: var(--text-muted); }
 
 .btn-reset {
-  background: white;
-  color: var(--text-main);
+  background: transparent; color: var(--primary);
+  border: none; cursor: pointer; font-weight: 600;
+  font-size: 0.9rem; text-decoration: underline; padding: 0;
 }
+.btn-reset:hover { color: var(--primary-hover); }
 
-.icc-error { color: var(--price-color); font-weight: bold; }
+.icc-error { color: #dc2626; font-weight: bold; }
 
-/* GRIGLIA PRODOTTI (2 colonne su mobile!) */
+/* GRIGLIA PRODOTTI (2 colonne mobile, gap aumentato) */
 .store-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px; /* Spazio stretto, tipico e-commerce */
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
 }
 
-/* CARD PRODOTTO */
+/* CARD PRODOTTO PREMIUM */
 .store-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  transition: box-shadow 0.2s;
+  background: var(--card-bg); border: 1px solid var(--border-color);
+  border-radius: var(--radius); display: flex; flex-direction: column;
+  overflow: hidden; transition: transform 0.2s, box-shadow 0.2s;
 }
-
 .store-card:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  border-color: #d1d5db;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+  border-color: #cbd5e1;
 }
 
 .store-card-img-wrapper {
-  position: relative;
-  padding: 16px;
-  background: #ffffff;
-  border-bottom: 1px solid #f3f4f6;
-  text-align: center;
+  position: relative; padding: 20px; background: #ffffff;
+  border-bottom: 1px solid var(--bg-color); text-align: center;
 }
-
-.store-card-img {
-  width: 100%;
-  height: 140px;
-  object-fit: contain;
-}
+.store-card-img { width: 100%; height: 150px; object-fit: contain; }
 
 .badge-featured {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  background: #fbbf24; /* Giallo/Arancio offerte */
-  color: #854d0e;
-  font-size: 0.65rem;
-  font-weight: 800;
-  padding: 4px 8px;
-  border-radius: 3px;
-  text-transform: uppercase;
+  position: absolute; top: 12px; left: 12px;
+  background: #fef08a; color: #854d0e; font-size: 0.7rem;
+  font-weight: 800; padding: 4px 10px; border-radius: 100px;
+  text-transform: uppercase; letter-spacing: 0.5px;
 }
 
-.store-card-content {
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
+.store-card-content { padding: 16px; display: flex; flex-direction: column; flex: 1; }
 
 .store-card-category {
-  font-size: 0.7rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  margin-bottom: 4px;
+  font-size: 0.75rem; color: var(--text-muted); font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;
 }
 
 .store-card-title {
-  font-size: 0.85rem;
-  font-weight: 500;
-  line-height: 1.4;
-  margin: 0 0 12px;
-  color: #007185; /* Colore link stile store (es. Amazon) */
-  display: -webkit-box;
-  -webkit-line-clamp: 3; /* Mostra max 3 righe */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  font-size: 0.9rem; font-weight: 600; line-height: 1.5;
+  margin: 0 0 16px; color: var(--text-main);
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
 }
 
-.store-card-bottom {
-  margin-top: auto;
-}
+.store-card-bottom { margin-top: auto; }
 
-.store-card-price {
-  font-size: 0.85rem;
-  color: var(--price-color);
-  margin-bottom: 12px;
-}
+.store-card-price { font-size: 0.9rem; color: var(--price-color); margin-bottom: 16px; }
+.store-card-price span { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
 
-.store-card-price span {
-  font-size: 1.4rem;
-  font-weight: 800;
-}
+.no-price { color: var(--text-muted); font-size: 0.95rem; font-weight: 600; }
 
-.no-price {
-  color: var(--text-muted);
-  font-size: 0.85rem;
-  font-weight: 500;
-}
-
-/* BOTTONE ACQUISTO */
+/* BOTTONE ACQUISTO (Giallo Amazon rivisitato) */
 .store-btn-buy {
-  display: block;
-  width: 100%;
-  text-align: center;
-  background-color: #ffd814; /* Giallo e-commerce classico, attira clic */
-  color: #0f1111;
-  padding: 10px;
-  border-radius: 100px;
-  text-decoration: none;
-  font-size: 0.85rem;
-  font-weight: 600;
-  transition: background 0.2s;
+  display: block; width: 100%; text-align: center;
+  background-color: #ffd814; color: #0f1111;
+  padding: 12px; border-radius: 100px; text-decoration: none;
+  font-size: 0.9rem; font-weight: 700; transition: background 0.2s;
   border: 1px solid #fcd200;
 }
-
-.store-btn-buy:hover {
-  background-color: #f7ca00;
-}
+.store-btn-buy:hover { background-color: #f7ca00; }
 
 .store-footer {
-  text-align: center;
-  padding: 24px;
-  color: var(--text-muted);
-  font-size: 0.8rem;
-  background: #ffffff;
-  border-top: 1px solid var(--border-color);
-  margin-top: 40px;
+  text-align: center; padding: 32px 16px; color: var(--text-muted);
+  font-size: 0.85rem; background: transparent; margin-top: 40px;
 }
 
 /* BREAKPOINTS (Tablet & Desktop) */
 @media (min-width: 640px) {
-  .store-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
+  .store-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .store-card-img { height: 180px; }
-  .store-card-title { font-size: 0.95rem; }
-  .price-input { width: 90px; }
+  .store-card-title { font-size: 1rem; }
 }
 
 @media (min-width: 960px) {
-  .store-header { padding: 16px 24px; }
-  .store-logo h1 { font-size: 1.8rem; }
-  .store-search-bar { height: 48px; }
-  .search-select { max-width: 180px; font-size: 0.95rem; }
-  
-  .store-toolbar {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px;
-  }
-
-  .store-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-  }
+  .store-header { padding: 20px 32px; }
+  .store-search-bar { height: 52px; }
+  .search-input { font-size: 1.05rem; }
+  .store-grid { grid-template-columns: repeat(4, 1fr); gap: 24px; }
 }
