@@ -9,6 +9,15 @@
     "featured": false
   },
   {
+    "titolo": "Apple Portatile MacBook Air 13'' con chip M4 (2025): progettato per Apple Intelligence, display Liquid Retina da 13,6'', 16GB di memoria unificata, 256GB di archiviazione SSD, Touch ID; Mezzanotte",
+    "descrizione": "",
+    "immagine": "https://m.media-amazon.com/images/I/71sQdN4lfYL._AC_SX342_SY445_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4rX6O1q",
+    "categoria": "Computer",
+    "prezzo": null,
+    "featured": false
+  },
+  {
     "titolo": "Bieye L30962 Lampada da tavolo decorativa in vetro colorato in stile Tiffany a forma di lumaca di terra per la decorazione della casa (Rosa, 10\" P x 5\"L x 5\"A)",
     "descrizione": "",
     "immagine": "https://m.media-amazon.com/images/I/61EG-SIIfpL._AC_SX342_SY445_QL70_ML2_.jpg",
@@ -67,15 +76,6 @@
     "descrizione": "",
     "immagine": "https://m.media-amazon.com/images/I/61PCpYBIOSL._AC_SY300_SX300_QL70_ML2_.jpg",
     "link": "https://amzn.to/40VWnQL",
-    "categoria": "Tecnologia",
-    "prezzo": null,
-    "featured": false
-  },
-  {
-    "titolo": "Telescopio riflettore newtoniano 130EQ per adulti, telescopi professionali per adulti astronomia, viene fornito con adattatore per smartphone con obiettivo Barlow 1.5X e filtro luna T 13%",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/71SwllVQeiL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/411FHHv",
     "categoria": "Tecnologia",
     "prezzo": null,
     "featured": false
@@ -189,15 +189,6 @@
     "featured": false
   },
   {
-    "titolo": "Prosecco per favore! 101 Momenti Antistress per Donne: Un’idea regalo divertente per amiche, mamme o colleghe che amano ridere, rilassarsi e brindare alla vita",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/51NgzRu0DBL._SY445_SX342_ML2_.jpg",
-    "link": "https://amzn.to/411Gbxj",
-    "categoria": "Libri",
-    "prezzo": 14.0,
-    "featured": false
-  },
-  {
     "titolo": "Lampada lava blu. Lampada da comodino con 2 lampadine incluse. Regalo divertente per adolescenti. Lampada retrò, 34 x 8,5 cm.",
     "descrizione": "",
     "immagine": "https://m.media-amazon.com/images/I/51AD5R2ymLL._AC_SY300_SX300_QL70_ML2_.jpg",
@@ -225,15 +216,6 @@
     "featured": false
   },
   {
-    "titolo": "LEGO Botanicals Rose - Set da Costruire di Fiori Finti - Decorazione Floreale da Casa o da Scrivania - Gioco della Natura per Bambine, Bambini e Adolescenti da 8 Anni - Regalo di Compleanno - 40460",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/71V62vhVjqL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/4vc7fYC",
-    "categoria": "Giocattoli e giochi",
-    "prezzo": null,
-    "featured": false
-  },
-  {
     "titolo": "Accentra Set regalo in metallo con gel doccia, lozione per il corpo, sapone e piccolo asciugamano, ideale come regalo per occasioni speciali come festa della mamma, festa del papà, compleanno o Pasqua",
     "descrizione": "",
     "immagine": "https://m.media-amazon.com/images/I/71YIqOYn8BL._AC_SY300_SX300_QL70_ML2_.jpg",
@@ -257,15 +239,6 @@
     "immagine": "https://m.media-amazon.com/images/I/716Z4sTfnaL._AC_SY300_SX300_QL70_ML2_.jpg",
     "link": "https://amzn.to/3O2rkjc",
     "categoria": "Giocattoli e giochi",
-    "prezzo": null,
-    "featured": false
-  },
-  {
-    "titolo": "Maxi-Cosi Emerald 360 S i-Size, Seggiolino auto girevole 360, 0-12 anni (40-150 cm), Seggiolino auto neonato, 4 posizioni reclinate, Protezione dagli impatti laterali G-CELL, Tonal Black",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/61CVbl9B0dL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/3NMdUI4",
-    "categoria": "Prima infanzia",
     "prezzo": null,
     "featured": false
   },
@@ -342,15 +315,6 @@
     "featured": false
   },
   {
-    "titolo": "Beauty Case da Viaggio - 2 in 1 Borsa per Cosmetici da Viaggio Donna con Floreale Borsa Cosmetica in Velluto a Coste",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/91HCT6FBHwL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/4m6rjY7",
-    "categoria": "Valigie",
-    "prezzo": null,
-    "featured": false
-  },
-  {
     "titolo": "Teatrino in Legno fatto a Mano. Kamishibai. Gioco portatile per Bambini con Teatro Giapponese delle Ombre per Marionette. Japanese Paper Theater Handmade.",
     "descrizione": "",
     "immagine": "https://m.media-amazon.com/images/I/41YweqAyCqL._QL70_ML2_.jpg",
@@ -369,11 +333,29 @@
     "featured": false
   },
   {
-    "titolo": "Embosser per libri personalizzato – Timbro Ex Libris a secco 41 mm con rilievo 3D – senza inchiostro, con custodia – idea regalo elegante (Insignia Eternitas)",
+    "titolo": "Ceramic Flower Bouquet Set of 10 Handmade Ceramic Roses Simulated Flowers Floral Decorations, Creative Gifts for Flora Home Decor (Light Pink Rose, 10 Inch (Pack of 10))",
     "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/8120+C5FisL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/41jN39z",
+    "immagine": "https://m.media-amazon.com/images/I/61GuYEJEsXL._AC_SY300_SX300_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4sFq0C7",
     "categoria": "Casa",
+    "prezzo": null,
+    "featured": false
+  },
+  {
+    "titolo": "Figura decorativa «La Strada verso la Cima» - Decorazione come scultura alta 29cm come motivazione - Figura per l'ufficio e la scrivania",
+    "descrizione": "",
+    "immagine": "https://m.media-amazon.com/images/I/61AJnDXdTQL._AC_SY300_SX300_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4sD1YHE",
+    "categoria": "Casa",
+    "prezzo": null,
+    "featured": false
+  },
+  {
+    "titolo": "Zaino Ryanair 40x20x25 Zaino da Viaggio Aereo Bagaglio a Mano Donna Uomo 20L per Voli Porta PC 14 Pollici per Scuola e Lavoro Trekking beige",
+    "descrizione": "",
+    "immagine": "https://m.media-amazon.com/images/I/81DQUOb7ExL._AC_SY300_SX300_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4mfV3SF",
+    "categoria": "Valigie",
     "prezzo": null,
     "featured": false
   },
@@ -405,6 +387,15 @@
     "featured": false
   },
   {
+    "titolo": "Out of the blue Oggetto Decorativo/Orologio ad Angolo con Effetto Oggetto Fuso/Dimensioni: 18x13 cm",
+    "descrizione": "",
+    "immagine": "https://m.media-amazon.com/images/I/71JB-pFpKXL._AC_SY300_SX300_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4bReaxw",
+    "categoria": "Casa",
+    "prezzo": null,
+    "featured": false
+  },
+  {
     "titolo": "10 Pezzi Adesivi da Parete a Specchio Flessibile, Non Vetro Specchio Piastrelle Parete appiccicoso per Decorazioni Murali Casa (30 x 20 cm)",
     "descrizione": "",
     "immagine": "https://m.media-amazon.com/images/I/61w0pUpAKdL._AC_SY300_SX300_QL70_ML2_.jpg",
@@ -423,15 +414,6 @@
     "featured": false
   },
   {
-    "titolo": "Utopia Towels, Set Di Asciugamani Da 8 pezzi, 2 Asciugamani Da Bagno, 2 Asciugamani a Mano e 4 Panni Da Lavare, Altamente Assorbente Per Bagno, Palestra, Hotel e Spa (Grigio)",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/91xpBpKYs8L._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/4lWVT6j",
-    "categoria": "Casa",
-    "prezzo": null,
-    "featured": false
-  },
-  {
     "titolo": "Luce Notturna Bambini da Presa, [2 Pezzi] 2700K Luci Notturne con Sensore Movimento Modalità Sensore o Sempre Accesa Regolabile, Certificata CE per Interni da Letto, Soggiorno e Bagno",
     "descrizione": "",
     "immagine": "https://m.media-amazon.com/images/I/615071Rl3eL._AC_SX342_SY445_QL70_ML2_.jpg",
@@ -441,10 +423,10 @@
     "featured": false
   },
   {
-    "titolo": "LEGO Botanicals Albicocco Giapponese - Fiore Finto Artificiale da Costruire per Adulti - Decorazione Floreale per Casa Fai da Te - Idea Regalo per Donna o Uomo da Collezione - 10369",
+    "titolo": "LEGO Icons Ferrari F2004 e Michael Schumacher - Modello di Auto F1 per Adulti - Set con Motore V10 e Minifigure da Collezione del Pilota - Regalo Fai da Te per i Fan degli Sport Motoristici - 11375",
     "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/81SPGUu9TRL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/47v4Gql",
+    "immagine": "https://m.media-amazon.com/images/I/81gLdY0+N+L._AC_SY300_SX300_QL70_ML2_.jpg",
+    "link": "https://amzn.to/41y7tvm",
     "categoria": "Giocattoli e giochi",
     "prezzo": null,
     "featured": false
@@ -464,24 +446,6 @@
     "immagine": "https://m.media-amazon.com/images/I/71csIAu-vCL._AC_SY300_SX300_QL70_ML2_.jpg",
     "link": "https://amzn.to/4dgeiJ9",
     "categoria": "Valigie",
-    "prezzo": null,
-    "featured": false
-  },
-  {
-    "titolo": "Studio Ghibli ENSKY - Set di 54 carte Ghibli Le Voyage de Chihiro (rif. ENSKY-18198)",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/71eUyxdgk4L._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/4dMptcG",
-    "categoria": "Giocattoli e giochi",
-    "prezzo": null,
-    "featured": false
-  },
-  {
-    "titolo": "Grupo Erik: Lampada One Piece Gom Gom Fruit | Lampada Frutto del Diavolo One Piece, ricaricabile con cavo USB o batterie, One Piece Gadget, Accessori Scrivania Gaming, Accessori Anime",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/614+QmMrM4L._AC_SX342_SY445_QL70_ML2_.jpg",
-    "link": "https://amzn.to/3NPB1kQ",
-    "categoria": "Casa",
     "prezzo": null,
     "featured": false
   },
@@ -517,15 +481,6 @@
     "descrizione": "",
     "immagine": "https://m.media-amazon.com/images/I/51jnDsyaoJL._AC_SY300_SX300_QL70_ML2_.jpg",
     "link": "https://amzn.to/4sE8DkQ",
-    "categoria": "Prodotti per animali domestici",
-    "prezzo": null,
-    "featured": false
-  },
-  {
-    "titolo": "Homerunpet Toelettatura e Aspirazione a Vuoto per Animali Domestici, 12000 Pa Ultra Silenziosa Tosatrice per Cani e Gatto Professionale, Aspira Peli per Cani con 6 Strumenti, 1,85L",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/71Q3UsI0UNL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/41y7X4E",
     "categoria": "Prodotti per animali domestici",
     "prezzo": null,
     "featured": false
@@ -612,15 +567,6 @@
     "featured": false
   },
   {
-    "titolo": "Funko Pop! Sanrio: Hello Kitty S8- Kuromi Present - Figura in Vinile da Collezione - Idea Regalo - Merchandising Ufficiale - Giocattoli per Bambini e Adulti - Anime Fans - Figura per i Collezionisti",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/61qpgAZCs2L._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/3Py2p7G",
-    "categoria": "Giocattoli e giochi",
-    "prezzo": null,
-    "featured": false
-  },
-  {
     "titolo": "2 pezzi Killua Zaoldyeck Figure GON·Freecss Action Figures Statua Ornamenti, Decorazioni per Desktop Collezioni",
     "descrizione": "",
     "immagine": "https://m.media-amazon.com/images/I/51mmgK2wXML._AC_SY300_SX300_QL70_ML2_.jpg",
@@ -634,15 +580,6 @@
     "descrizione": "",
     "immagine": "https://m.media-amazon.com/images/I/71GD18ta1kL._AC_SY300_SX300_QL70_ML2_.jpg",
     "link": "https://amzn.to/4d9I8yZ",
-    "categoria": "Alimenti e prodotti gourmet",
-    "prezzo": null,
-    "featured": false
-  },
-  {
-    "titolo": "AMICA Chips | Eldorada Patatine Gusto Salsa Barbecue, Lenta Cottura, Taglio Spesso e Croccante, Senza Glutine, 15 Pezzi x 130 gr",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/81bqv6ikphL._AC_SX300_SY300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/4bTfcJa",
     "categoria": "Alimenti e prodotti gourmet",
     "prezzo": null,
     "featured": false
@@ -671,14 +608,14 @@
     "immagine": "https://m.media-amazon.com/images/I/A1-b2B164AL._AC_SX300_SY300_QL70_ML2_.jpg",
     "link": "https://amzn.to/3PLvBYL",
     "categoria": "Giocattoli e giochi",
-    "prezzo": null,
+    "prezzo": 19.0,
     "featured": false
   },
   {
-    "titolo": "Pop Tarts Pasticcini tostapane S'mores glassati, 382,7 g, 8 pezzi",
+    "titolo": "Kellogg's Pop-Tarts, frullato alla fragola glassato, 799,5 g, 16 ct",
     "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/81qTd3tK4YL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/3O3Qxd6",
+    "immagine": "https://m.media-amazon.com/images/I/71t8CcGYqAL._AC_SX300_SY300_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4sE9GkM",
     "categoria": "Alimenti e prodotti gourmet",
     "prezzo": null,
     "featured": false
@@ -738,6 +675,15 @@
     "featured": false
   },
   {
+    "titolo": "Easycosy Coperta Personalizzata con Foto, Coperta in Flanella Ultra Morbida, Plaid Personalizzato, Festa della Mamma Idee Regalo 2026, Regali per Uomo, Donna, Può Essere Aggiornato in Lana di Agnello",
+    "descrizione": "",
+    "immagine": "https://m.media-amazon.com/images/I/81P9ySll-fL._AC_SY300_SX300_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4uW0eLj",
+    "categoria": "Casa",
+    "prezzo": null,
+    "featured": false
+  },
+  {
     "titolo": "Xbro Divano 3 Posti a L Componibile in Velluto a Coste, Sofa Moderno per Soggiorno con Cuscini e Tasche Laterali, Schiuma 30D Alta Densità, 250x160x62 cm,Grigio Scuro",
     "descrizione": "",
     "immagine": "https://m.media-amazon.com/images/I/81t1f5O2ImL._AC_SY300_SX300_QL70_ML2_.jpg",
@@ -792,10 +738,10 @@
     "featured": false
   },
   {
-    "titolo": "Victoria's Secret Spray profumato alla vaniglia nuda 238,1 g",
+    "titolo": "Bare Vanilla Fragrance Body Lotion 236 Ml",
     "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/41j4Kuyo24L._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/4swOLjE",
+    "immagine": "https://m.media-amazon.com/images/I/615KHdFr12L._AC_SY300_SX300_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4t8UfAX",
     "categoria": "Bellezza",
     "prezzo": null,
     "featured": false
@@ -810,6 +756,15 @@
     "featured": false
   },
   {
+    "titolo": "Vancavoo Giacca Primaverile Donna Giubbotto Cotone Parka Elegante Casual e Leggere Cappotto con Cappuccio Antivento Giacche Outdoor",
+    "descrizione": "",
+    "immagine": "https://m.media-amazon.com/images/I/61aAJuJfPSL._AC_SX342_SY445_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4v44WH1",
+    "categoria": "Abbigliamento e accessori",
+    "prezzo": null,
+    "featured": false
+  },
+  {
     "titolo": "Amazon Essentials Donna Piumino Leggero a Maniche Lunghe Resistente all'Acqua Ripiegabile (Disponibile in Taglie Forti)",
     "descrizione": "",
     "immagine": "https://m.media-amazon.com/images/I/81gcy2ghX4L._AC_SX342_SY445_QL70_ML2_.jpg",
@@ -819,10 +774,10 @@
     "featured": false
   },
   {
-    "titolo": "Navahoo Giacca Trapuntata Mezza Stagione da Donna Kimuk XS-XXL",
+    "titolo": "SINOPHANT Leggins Vita Alta Donna, Leggings Donna Fitness Pantaloni Yoga Controllo della Pancia Opaco Elastici Morbido per Sportivi o Casual",
     "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/81cBVK9fQmL._AC_SY445_SX342_QL70_ML2_.jpg",
-    "link": "https://amzn.to/4lVB4Ix",
+    "immagine": "https://m.media-amazon.com/images/I/51QYOo+dhUS._AC_SX342_SY445_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4lX5kTv",
     "categoria": "Abbigliamento e accessori",
     "prezzo": null,
     "featured": false
@@ -837,11 +792,20 @@
     "featured": false
   },
   {
-    "titolo": "Completo Tailleur da Donna, 2 Pezzi, Slim Fit, Giacca a Bottone Unico, con Gonna O Pantalone, da Ufficio Completo da Donna con Giacca e Cardigan con Risvolto e Bottoni alla Moda",
+    "titolo": "Maglione da donna, senza maniche, con scollo a V, elegante, lavorato a maglia, casual, da donna, autunno, inverno",
     "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/61-roOvJnrL._AC_SX342_SY445_QL70_ML2_.jpg",
-    "link": "https://amzn.to/4bMtonm",
+    "immagine": "https://m.media-amazon.com/images/I/61kshcs+iyL._AC_SY445_SX342_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4s0waeO",
     "categoria": "Abbigliamento e accessori",
+    "prezzo": null,
+    "featured": false
+  },
+  {
+    "titolo": "ANTHBOT M9 Robot Trimmer senza fili, NetRTK, 4G, Batteria 5000 mAh, Consigliato 1000 m², Massimo 1200 m², Pendenza di 24° (45%), Supporta 2RTK Progettato per Giardini Anteriori e Posteriori",
+    "descrizione": "",
+    "immagine": "https://m.media-amazon.com/images/I/71lg7dHig7L._AC_SY300_SX300_QL70_ML2_.jpg",
+    "link": "https://amzn.to/3O6HCHN",
+    "categoria": "Patio e giardino",
     "prezzo": null,
     "featured": false
   },
@@ -852,15 +816,6 @@
     "link": "https://amzn.to/4t7aoqC",
     "categoria": "Patio e giardino",
     "prezzo": null,
-    "featured": false
-  },
-  {
-    "titolo": "L'ANTICO LIBRO DELLE PIANTE MEDICINALI: Oltre 800 Rimedi Erboristici per Guarire Naturalmente con le Erbe e Prevenire Malattie. Più di 600 Ricette per Tinture, Infusi, Impacchi, Oli e molto altro",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/51n6MAWIIRL._SY445_SX342_ML2_.jpg",
-    "link": "https://amzn.to/3POjWsa",
-    "categoria": "Libri",
-    "prezzo": 24.0,
     "featured": false
   },
   {
@@ -896,15 +851,6 @@
     "immagine": "https://m.media-amazon.com/images/I/61fPBQvdS9L._AC_SX342_SY445_QL70_ML2_.jpg",
     "link": "https://amzn.to/47qBQax",
     "categoria": "Casa",
-    "prezzo": null,
-    "featured": false
-  },
-  {
-    "titolo": "LEGO Ideas Central Perk, Set con l'Iconico Caffè e 7 Minifigure Friends, Gadget per il 25° Anniversario della Serie TV, Costruzioni per Adulti, 21319",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/81xZLq7UXUL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/4bCTN8f",
-    "categoria": "Giocattoli e giochi",
     "prezzo": null,
     "featured": false
   },
@@ -963,11 +909,11 @@
     "featured": false
   },
   {
-    "titolo": "Mega Pack 200 Dolci, Caramelle e Candy Cia&Co · Per Compleanni, Piñata, Feste per Bambini, Natale, Halloween · Fino a 20 Buste · Ogni Pezzo Incartato Singolarmente",
+    "titolo": "Minetom Donna Vestiti Lunghi da Matrimonio Elegante Collo V Vestito A Pieghe Stampa Floreale Chiffon Abito Maxi Damigella Sera Cerimonia",
     "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/91r-m1Zm6EL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/4m2p8Fa",
-    "categoria": "Alimenti e prodotti gourmet",
+    "immagine": "https://m.media-amazon.com/images/I/5104-5Dg-9L._AC_SX342_SY445_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4dgmoBG",
+    "categoria": "Abbigliamento e accessori",
     "prezzo": null,
     "featured": false
   },
@@ -990,21 +936,21 @@
     "featured": false
   },
   {
+    "titolo": "Gruppo Veneziano - set Guanto+Presina personalizzabile - Personalizza Ora il tuo set da cucina Guanto+Presina - 100% made in italy",
+    "descrizione": "",
+    "immagine": "https://m.media-amazon.com/images/I/71ySepA5D9L._AC_SY300_SX300_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4s4aChk",
+    "categoria": "Cucina e tavola",
+    "prezzo": null,
+    "featured": false
+  },
+  {
     "titolo": "Pausa Libro: 101 pillole di scienza e cultura per quando posi il telefono",
     "descrizione": "",
     "immagine": "https://m.media-amazon.com/images/I/41w0xxPddgL._SY445_SX342_ML2_.jpg",
     "link": "https://amzn.to/47wrnKF",
     "categoria": "Libri",
     "prezzo": 19.0,
-    "featured": false
-  },
-  {
-    "titolo": "Sword art online. Progressive. Box (Vol. 1-4)",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/51n-l0niK3L._SX342_SY445_ML2_.jpg",
-    "link": "https://amzn.to/4lZSjsr",
-    "categoria": "Libri",
-    "prezzo": 21.0,
     "featured": false
   },
   {
@@ -1085,15 +1031,6 @@
     "immagine": "https://m.media-amazon.com/images/I/511XRRfhdcL._AC_SY300_SX300_QL70_ML2_.jpg",
     "link": "https://amzn.to/4sG7idv",
     "categoria": "Arredamento",
-    "prezzo": null,
-    "featured": false
-  },
-  {
-    "titolo": "MOACC Porta Trucchi Rotante a 360°, Organizzatore di Cosmetici ad Grande Capacità, Organizzatore di Profumi, Make Up Organizer Adatti per Toeletta Camera da Letto Bagno Cucina, 1 Strato, Ambra",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/719nE8Wl80L._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/410WXfW",
-    "categoria": "Casa",
     "prezzo": null,
     "featured": false
   }
