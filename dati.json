@@ -1,5 +1,14 @@
 [
   {
+    "titolo": "Apple iPhone 17 256 GB: display 6,3\" con ProMotion, chip A19, fotocamera frontale Center Stage per selfie di gruppo più facili, più resistenza ai graffi, un giorno intero di batteria; Nero",
+    "descrizione": "",
+    "immagine": "https://m.media-amazon.com/images/I/61X5FknDWuL._AC_SX342_SY445_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4tbaoWD",
+    "categoria": "Smartphone",
+    "prezzo": null,
+    "featured": false
+  },
+  {
     "titolo": "Apple Portatile MacBook Air 13'' con chip M4 (2025): progettato per Apple Intelligence, display Liquid Retina da 13,6'', 16GB di memoria unificata, 256GB di archiviazione SSD, Touch ID; Mezzanotte",
     "descrizione": "",
     "immagine": "https://m.media-amazon.com/images/I/71sQdN4lfYL._AC_SX342_SY445_QL70_ML2_.jpg",
@@ -27,10 +36,10 @@
     "featured": false
   },
   {
-    "titolo": "Giniros Sneakers Uomo Scarpe Running Ginnastica Corsa Camminata Leggere Traspiranti Casual Sportive Palestra Trekking Tennis Trail Mesh Basket Comode Outdoor Fitness Jogging Lavoro Scarpe",
+    "titolo": "Scarpe Classiche Boat&Deck da Uomo Fatte a Mano Moc Toe Lace Up Moda Confortevole in Pelle Pieno Fiore",
     "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/71+xVbVkKoL._AC_SY395_SX395_QL70_ML2_.jpg",
-    "link": "https://amzn.to/4bDGXqv",
+    "immagine": "https://m.media-amazon.com/images/I/71tGQbzLhIL._AC_SY395_SX395_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4bHFJcg",
     "categoria": "Scarpe",
     "prezzo": null,
     "featured": false
@@ -81,6 +90,15 @@
     "featured": false
   },
   {
+    "titolo": "Logitech MK295 Silent Wireless Combo tastiera e mouse con tecnologia SilentTouch, tastierino numerico, tracciamento ottico avanzato, wireless senza ritardi, 90% di rumore in meno, ITA QWERTY - Nero",
+    "descrizione": "",
+    "immagine": "https://m.media-amazon.com/images/I/61kuDqmzB5L._AC_SY300_SX300_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4tjJ9tf",
+    "categoria": "Tecnologia",
+    "prezzo": null,
+    "featured": false
+  },
+  {
     "titolo": "Russell Hobbs Vaporiera 9,0 l - Multicottura: 3 contenitori per cottura a vapore lavabili in lavastoviglie - Ciotola per Riso; 6 portauova; timer 60 minuti; Spegnimento automatico; No BPA, 19270-56",
     "descrizione": "",
     "immagine": "https://m.media-amazon.com/images/I/71kGWU+fHAL._AC_SY300_SX300_QL70_ML2_.jpg",
@@ -126,6 +144,15 @@
     "featured": false
   },
   {
+    "titolo": "iDIY Calzini con foto del viso personalizzati - calzini divertenti, regali personalizzati per fidanzati, fidanzate, famiglia, sorelle, regali di Natale, regali san valentino per lui lei",
+    "descrizione": "",
+    "immagine": "https://m.media-amazon.com/images/I/61pmt-63IeL._AC_SX342_SY445_QL70_ML2_.jpg",
+    "link": "https://amzn.to/3O6DSpJ",
+    "categoria": "Abbigliamento e accessori",
+    "prezzo": null,
+    "featured": false
+  },
+  {
     "titolo": "Easycosy Cuscino Personalizzato con Foto e Testo, Stampa Fronte-Retro Federa per Cuscino Personalizzata 30x30, Festa del Mamma Idee Regalo, Regali Personalizzati per Donna, Lui(Imbottitura Opzionale)",
     "descrizione": "",
     "immagine": "https://m.media-amazon.com/images/I/81V27QmOeGL._AC_SY300_SX300_QL70_ML2_.jpg",
@@ -144,11 +171,47 @@
     "featured": false
   },
   {
+    "titolo": "Collana personalizzata con incisione | Collana con cuori collegati | Regalo per coppia o fidanzata | Regalo per mamma | Oro, argento, oro rosa | Acciaio inossidabile impermeabile | Made in Germany",
+    "descrizione": "",
+    "immagine": "https://m.media-amazon.com/images/I/512UjR9ejRL._AC_SX342_SY445_QL70_ML2_.jpg",
+    "link": "https://amzn.to/48gdj8n",
+    "categoria": "Handmade",
+    "prezzo": null,
+    "featured": false
+  },
+  {
+    "titolo": "Eilik Blu – Adorabile Robot Interattivo: Smart Gadget per la Casa o la Scrivania con Emozioni Realistiche e Aggiornamenti Costanti, Idea Regalo per Adulti e Bimbi, Robo-Pet per Ragazzi e Ragazze",
+    "descrizione": "",
+    "immagine": "https://m.media-amazon.com/images/I/51DBd7O6GEL._AC_SY300_SX300_QL70_ML2_.jpg",
+    "link": "https://amzn.to/47nkSde",
+    "categoria": "Giocattoli e giochi",
+    "prezzo": null,
+    "featured": false
+  },
+  {
     "titolo": "Cultivea Mini - Bonsai Ready-to-Grow Kit - Giardino e decorazione - Idea regalo (Mela rossa, Cercis cinese, Cornus Kousa, Albizia, Abete rosso)",
     "descrizione": "",
     "immagine": "https://m.media-amazon.com/images/I/61GSC+rChpL._AC_SY300_SX300_QL70_ML2_.jpg",
     "link": "https://amzn.to/3PB8QXw",
     "categoria": "Patio e giardino",
+    "prezzo": null,
+    "featured": false
+  },
+  {
+    "titolo": "Prosecco per favore! 101 Momenti Antistress per Donne: Un’idea regalo divertente per amiche, mamme o colleghe che amano ridere, rilassarsi e brindare alla vita",
+    "descrizione": "",
+    "immagine": "https://m.media-amazon.com/images/I/51NgzRu0DBL._SY445_SX342_ML2_.jpg",
+    "link": "https://amzn.to/411Gbxj",
+    "categoria": "Libri",
+    "prezzo": 14.0,
+    "featured": false
+  },
+  {
+    "titolo": "Lampada lava blu. Lampada da comodino con 2 lampadine incluse. Regalo divertente per adolescenti. Lampada retrò, 34 x 8,5 cm.",
+    "descrizione": "",
+    "immagine": "https://m.media-amazon.com/images/I/51AD5R2ymLL._AC_SY300_SX300_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4uY96jp",
+    "categoria": "Casa",
     "prezzo": null,
     "featured": false
   },
@@ -162,33 +225,6 @@
     "featured": false
   },
   {
-    "titolo": "Fisher-Price Lontra Coccola & Relax - Carillon Neonati Succhietto con Movimento Respirazione - Luci e Suoni - Scoperte Sensoriali - Regalo per Neonati da 0+ Mesi, FXC66",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/71JTJQLeZyL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/4caz23U",
-    "categoria": "Prima infanzia",
-    "prezzo": 28.0,
-    "featured": false
-  },
-  {
-    "titolo": "LEGO Botanicals Rose - Idee Regalo Festa della Mamma - Set di Fiori Finti - Decorazione Floreale da Casa o da Scrivania - Gioco della Natura per Bambine, Bambini e Adolescenti da 8 Anni - 40460",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/71V62vhVjqL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/4vc7fYC",
-    "categoria": "Giocattoli e giochi",
-    "prezzo": null,
-    "featured": false
-  },
-  {
-    "titolo": "Accentra, regalo uomo set bagno corpo in contenitore di metallo, con gel doccia, lozione corpo, sapone e piccolo asciugamano, cofanetto cura persona utile per compleanno e occasioni speciali",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/71YIqOYn8BL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/4dPlgoF",
-    "categoria": "Bellezza",
-    "prezzo": 14.0,
-    "featured": false
-  },
-  {
     "titolo": "Regalo Festa della Mamma: Coperte per Natale e Compleanno, Regali Figlia/Figlio, 130 x 150 cm",
     "descrizione": "",
     "immagine": "https://m.media-amazon.com/images/I/81oezWNakdL._AC_SY300_SX300_QL70_ML2_.jpg",
@@ -198,20 +234,20 @@
     "featured": false
   },
   {
-    "titolo": "hahaland Giochi Neonato 6 Mesi Granchio Interattivo - Peluche Musicale Giocattolo Gattonare Giochi Bambini 1 Anno - Regalo Neonato per 6 9 12 Mesi",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/716Z4sTfnaL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/3O2rkjc",
-    "categoria": "Giocattoli e giochi",
-    "prezzo": null,
-    "featured": false
-  },
-  {
     "titolo": "Maxi-Cosi Emerald 360 S i-Size, Seggiolino auto girevole 360, 0-12 anni (40-150 cm), Seggiolino auto neonato, 4 posizioni reclinate, Protezione dagli impatti laterali G-CELL, Tonal Black",
     "descrizione": "",
     "immagine": "https://m.media-amazon.com/images/I/61CVbl9B0dL._AC_SY300_SX300_QL70_ML2_.jpg",
     "link": "https://amzn.to/3NMdUI4",
     "categoria": "Prima infanzia",
+    "prezzo": null,
+    "featured": false
+  },
+  {
+    "titolo": "KIDIZ® Lettino per bambini 3in1, Lettino da viaggio, Set - Lettino con fasciatoio, Zanzariera, Pareti laterali aerate, Navicella, pieghevole, fino a 15 kg, Marrone",
+    "descrizione": "",
+    "immagine": "https://m.media-amazon.com/images/I/9118gQAaz-L._AC_SY300_SX300_QL70_ML2_.jpg",
+    "link": "https://amzn.to/47p2QqX",
+    "categoria": "Arredamento",
     "prezzo": null,
     "featured": false
   },
@@ -252,29 +288,11 @@
     "featured": false
   },
   {
-    "titolo": "Aucuu Beauty Case, 3 Pezzi Floreale Grande Capacità per Il Trucco, Borsa da Toilette Trapuntata, Beauty Case da Viaggio Cotone Morbido, Beauty Trapuntato Grandei da Toilette Makeup Bag Organizer",
+    "titolo": "Teatrino in Legno fatto a Mano. Kamishibai. Gioco portatile per Bambini con Teatro Giapponese delle Ombre per Marionette. Japanese Paper Theater Handmade.",
     "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/71YibH0FOUL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/4sBJsiO",
-    "categoria": "Valigie",
-    "prezzo": null,
-    "featured": false
-  },
-  {
-    "titolo": "Tqcir Spazzola professionale per asciugacapelli 5 in 1, potente multi-styler con bigodini a carica automatica, ad asciugatura rapida, senza danni termici",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/61k9h7qJzXL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/4uShD7H",
-    "categoria": "Apparecchi per la cura personale",
-    "prezzo": 155.0,
-    "featured": false
-  },
-  {
-    "titolo": "Aucuu Beauty Case da Viaggio - 2 in 1 Borsa per Cosmetici da Viaggio Donna con Floreale Borsa Cosmetica in Velluto a Coste",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/91HCT6FBHwL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/4m6rjY7",
-    "categoria": "Valigie",
+    "immagine": "https://m.media-amazon.com/images/I/41YweqAyCqL._QL70_ML2_.jpg",
+    "link": "https://amzn.to/4bE768D",
+    "categoria": "Handmade",
     "prezzo": null,
     "featured": false
   },
@@ -283,6 +301,15 @@
     "descrizione": "",
     "immagine": "https://m.media-amazon.com/images/I/71q+YrEWPpL._AC_SY300_SX300_QL70_ML2_.jpg",
     "link": "https://amzn.to/4teBQmy",
+    "categoria": "Casa",
+    "prezzo": null,
+    "featured": false
+  },
+  {
+    "titolo": "Ceramic Flower Bouquet Set of 10 Handmade Ceramic Roses Simulated Flowers Floral Decorations, Creative Gifts for Flora Home Decor (Light Pink Rose, 10 Inch (Pack of 10))",
+    "descrizione": "",
+    "immagine": "https://m.media-amazon.com/images/I/61GuYEJEsXL._AC_SY300_SX300_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4sFq0C7",
     "categoria": "Casa",
     "prezzo": null,
     "featured": false
@@ -297,24 +324,6 @@
     "featured": false
   },
   {
-    "titolo": "FeinKnick Figura decorativa «La Strada verso la Cima» - Decorazione come scultura alta 29cm come motivazione - Figura per l'ufficio e la scrivania",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/61AJnDXdTQL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/4sD1YHE",
-    "categoria": "Casa",
-    "prezzo": null,
-    "featured": false
-  },
-  {
-    "titolo": "VANKEV Zaino Ryanair 40x20x25 Zaino da Viaggio Aereo Bagaglio a Mano Donna Uomo 20L per Voli Porta PC 14 Pollici per Scuola e Lavoro Trekking beige",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/81DQUOb7ExL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/4mfV3SF",
-    "categoria": "Valigie",
-    "prezzo": null,
-    "featured": false
-  },
-  {
     "titolo": "Nero Statua Del Salvadanaio Del Bulldog Francese - Con Vassoio in Acciaio Inossidabile, Svuotatasche per Chiavi, Portafogli, Caramelle e Altri Oggetti, Soprammobili Moderni e Centro Tavola",
     "descrizione": "",
     "immagine": "https://m.media-amazon.com/images/I/61fgBKckk6L._AC_SY300_SX300_QL70_ML2_.jpg",
@@ -324,11 +333,11 @@
     "featured": false
   },
   {
-    "titolo": "susswiff Porta carta igienica inox da appoggio con scopino - con scatola salviettine umidificate, ripiano in vetro (nero opaco)",
+    "titolo": "Carina Sedia da Scrivania 'Petalo' in Velluto con Cuscino a Fiocco,Sedia Toeletta Farfalla per Camera da Letto,Sedia da Ufficio con Schienale per Computer(Nero)",
     "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/61nd3cDSDmL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/47qxRe5",
-    "categoria": "Casa",
+    "immagine": "https://m.media-amazon.com/images/I/71bU5hyL+XL._AC_SY300_SX300_QL70_ML2_.jpg",
+    "link": "https://amzn.to/47W0Ne8",
+    "categoria": "Arredamento",
     "prezzo": null,
     "featured": false
   },
@@ -351,10 +360,28 @@
     "featured": false
   },
   {
+    "titolo": "VASAGLE Mobile Sottolavabo per Bagno, Mobiletto da Bagno, 3 Cassetti Laterali, 2 Scomparti dietro l'Anta, per Lavabi con Colonna, con Piedini, 30 x 70 x 64 cm, Bianco Nuvola BBK504W01",
+    "descrizione": "",
+    "immagine": "https://m.media-amazon.com/images/I/51GglXofhTL._AC_SY300_SX300_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4tbZfF1",
+    "categoria": "Arredamento",
+    "prezzo": null,
+    "featured": false
+  },
+  {
     "titolo": "Utopia Towels, Set Di Asciugamani Da 8 pezzi, 2 Asciugamani Da Bagno, 2 Asciugamani a Mano e 4 Panni Da Lavare, Altamente Assorbente Per Bagno, Palestra, Hotel e Spa (Grigio)",
     "descrizione": "",
     "immagine": "https://m.media-amazon.com/images/I/A1JTgsE-wVL._AC_SX300_SY300_QL70_ML2_.jpg",
     "link": "https://amzn.to/4lWVT6j",
+    "categoria": "Casa",
+    "prezzo": null,
+    "featured": false
+  },
+  {
+    "titolo": "Luce Notturna Bambini da Presa, [2 Pezzi] 2700K Luci Notturne con Sensore Movimento Modalità Sensore o Sempre Accesa Regolabile, Certificata CE per Interni da Letto, Soggiorno e Bagno",
+    "descrizione": "",
+    "immagine": "https://m.media-amazon.com/images/I/615071Rl3eL._AC_SX342_SY445_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4lZqosu",
     "categoria": "Casa",
     "prezzo": null,
     "featured": false
@@ -366,6 +393,15 @@
     "link": "https://amzn.to/4dfhIfk",
     "categoria": "Arredamento",
     "prezzo": null,
+    "featured": false
+  },
+  {
+    "titolo": "LEGO Botanicals Albicocco Giapponese - Fiore Finto Artificiale da Costruire per Adulti - Decorazione Floreale per Casa Fai da Te - Idea Regalo per Donna o Uomo da Collezione - 10369",
+    "descrizione": "",
+    "immagine": "https://m.media-amazon.com/images/I/81SPGUu9TRL._AC_SY300_SX300_QL70_ML2_.jpg",
+    "link": "https://amzn.to/47v4Gql",
+    "categoria": "Giocattoli e giochi",
+    "prezzo": 18.0,
     "featured": false
   },
   {
@@ -383,15 +419,6 @@
     "immagine": "https://m.media-amazon.com/images/I/81zb5tKzRFL._AC_SY300_SX300_QL70_ML2_.jpg",
     "link": "https://amzn.to/4lX07Lq",
     "categoria": "Giocattoli e giochi",
-    "prezzo": null,
-    "featured": false
-  },
-  {
-    "titolo": "Capybara Bambini Zaino Schoolbag Grande Capacità Kawaii Astuccio Scuola Capibara Trousse Silicone Pencil Case Portapenne Animali Portachiavi 4 Matite Penne Cancellabili Capybara Regalo Set",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/71csIAu-vCL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/4dgeiJ9",
-    "categoria": "Valigie",
     "prezzo": null,
     "featured": false
   },
@@ -414,39 +441,21 @@
     "featured": false
   },
   {
+    "titolo": "Generico Kraja Equipaggiamento Cosplay cintura mikasa levi Eren di manovra Tridimensionale atrezzatura per l'Armata Ricognitiva per i Fan di Atta giganti(Equipaggiamento)",
+    "descrizione": "",
+    "immagine": "https://m.media-amazon.com/images/I/51maCyC235L._AC_SY300_SX300_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4daTu5R",
+    "categoria": "Giocattoli e giochi",
+    "prezzo": null,
+    "featured": false
+  },
+  {
     "titolo": "Funko Pop! Animation: AoT - Eren Jaeger Jeager - Attack On Titan - Figura in Vinile da Collezione - Idea Regalo - Merchandising Ufficiale - Giocattoli per Bambini e Adulti - Anime Fans",
     "descrizione": "",
     "immagine": "https://m.media-amazon.com/images/I/61NJO5z5roL._AC_SY300_SX300_QL70_ML2_.jpg",
     "link": "https://amzn.to/4dPntQZ",
     "categoria": "Giocattoli e giochi",
     "prezzo": 17.0,
-    "featured": false
-  },
-  {
-    "titolo": "Bau Dental Formula 5 in 1 per Cani, Additivo per Acqua per Igiene Orale Quotidiana, Aiuta a Ridurre Placca e Alito Cattivo del Tuo Cane, Colluttorio Cane, PH Neutro, Gusto Delicato alla Menta",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/51jnDsyaoJL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/4sE8DkQ",
-    "categoria": "Prodotti per animali domestici",
-    "prezzo": null,
-    "featured": false
-  },
-  {
-    "titolo": "Homerunpet Toelettatura e Aspirazione a Vuoto per Animali Domestici, 12000 Pa Ultra Silenziosa Tosatrice per Cani e Gatto Professionale, Aspira Peli per Cani con 6 Strumenti, 1,85L",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/71Q3UsI0UNL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/41y7X4E",
-    "categoria": "Prodotti per animali domestici",
-    "prezzo": null,
-    "featured": false
-  },
-  {
-    "titolo": "Spazzola a Vapore per Gatti Con Pulsante di Rilascio, Ricaricabile Spazzola Vapore per Peli Lunghi e Corti Gatti Cani Conigli, Autopulente per la Cura Della Muta Degli Animali Domestici",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/71EUS52k21L._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/48fFwMy",
-    "categoria": "Bellezza",
-    "prezzo": null,
     "featured": false
   },
   {
@@ -477,10 +486,28 @@
     "featured": false
   },
   {
+    "titolo": "Adesivi Genshin Impact(B) 50 pezzi di adesivi per cartoni animati per bottiglie d'acqua, bagagli, bici, auto, adesivi carini per feste per adolescenti e adulti",
+    "descrizione": "",
+    "immagine": "https://m.media-amazon.com/images/I/71nS15CS00L._AC_SY300_SX300_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4bBXQSj",
+    "categoria": "Casa",
+    "prezzo": null,
+    "featured": false
+  },
+  {
     "titolo": "Zhongkaihua Hu Tao - Set completo di personaggi di gioco di ruolo, stile nazionale, a coda lunga, con nappe, per Halloween",
     "descrizione": "",
     "immagine": "https://m.media-amazon.com/images/I/61V3CCVPU2L._AC_SX342_SY445_QL70_ML2_.jpg",
     "link": "https://amzn.to/4sFr8pl",
+    "categoria": "Giocattoli e giochi",
+    "prezzo": null,
+    "featured": false
+  },
+  {
+    "titolo": "Eren Jaeger Statuetta a Busto Anime Figure da Collezione in Azione 22 cm Scultura Fatta a Mano Eren Jaeger Figurina Modello Collezione Decorazione da Scrivania Regalo per Fan",
+    "descrizione": "",
+    "immagine": "https://m.media-amazon.com/images/I/611ZhJXcHkL._AC_SY300_SX300_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4sA1ZvZ",
     "categoria": "Giocattoli e giochi",
     "prezzo": null,
     "featured": false
@@ -513,12 +540,39 @@
     "featured": false
   },
   {
+    "titolo": "2 pezzi Killua Zaoldyeck Figure GON·Freecss Action Figures Statua Ornamenti, Decorazioni per Desktop Collezioni",
+    "descrizione": "",
+    "immagine": "https://m.media-amazon.com/images/I/51mmgK2wXML._AC_SY300_SX300_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4uXPV9k",
+    "categoria": "Casa",
+    "prezzo": null,
+    "featured": false
+  },
+  {
+    "titolo": "Pringles Sour Cream e Onion| Snack salato| Chips al gusto cipolla e panna acida| A base di patate | Vegetariano | Perfette per l'aperitivo | Confezione singola da 175g",
+    "descrizione": "",
+    "immagine": "https://m.media-amazon.com/images/I/71GD18ta1kL._AC_SY300_SX300_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4d9I8yZ",
+    "categoria": "Alimenti e prodotti gourmet",
+    "prezzo": null,
+    "featured": false
+  },
+  {
     "titolo": "AMICA Chips | Eldorada Patatine Gusto Salsa Barbecue, Lenta Cottura, Taglio Spesso e Croccante, Senza Glutine, 15 Pezzi x 130 gr",
     "descrizione": "",
     "immagine": "https://m.media-amazon.com/images/I/81bqv6ikphL._AC_SX300_SY300_QL70_ML2_.jpg",
     "link": "https://amzn.to/4bTfcJa",
     "categoria": "Alimenti e prodotti gourmet",
     "prezzo": null,
+    "featured": false
+  },
+  {
+    "titolo": "EASY YUMMY - Polvere di Formaggio Cheddar 300 g – Gusto di Formaggio Istantaneo per Piatti & Snack – Sempre Pronto, Senza Frigo – Prodotto in Europa con 100% Formaggio Reale – Colorazione Naturale",
+    "descrizione": "",
+    "immagine": "https://m.media-amazon.com/images/I/81Y1q-XSwVL._AC_SY300_SX300_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4bNa6hz",
+    "categoria": "Alimenti e prodotti gourmet",
+    "prezzo": 18.0,
     "featured": false
   },
   {
@@ -549,39 +603,12 @@
     "featured": false
   },
   {
-    "titolo": "Kellogg's Pop-Tarts, frullato alla fragola glassato, 799,5 g, 16 ct",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/71t8CcGYqAL._AC_SX300_SY300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/4sE9GkM",
-    "categoria": "Alimenti e prodotti gourmet",
-    "prezzo": null,
-    "featured": false
-  },
-  {
     "titolo": "Kracie Popin Cookin Omatsuri (Japanese Festival Food Stands) DIY Kit",
     "descrizione": "",
     "immagine": "https://m.media-amazon.com/images/I/91SiMzr1c1L._AC_SX300_SY300_QL70_ML2_.jpg",
     "link": "https://amzn.to/4sDNzex",
     "categoria": "Alimenti e prodotti gourmet",
     "prezzo": null,
-    "featured": false
-  },
-  {
-    "titolo": "Caramelle Gommose agli Aromi Frutti Assortiti Lupo Alberto 200 x 11,5 g",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/61SlVHmsYjL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/4t66ApI",
-    "categoria": "Alimenti e prodotti gourmet",
-    "prezzo": null,
-    "featured": false
-  },
-  {
-    "titolo": "Accendino a Benzina Personalizzabile – Modello Zip in Metallo – Incisione Laser Nome, Iniziali o Logo – Made in Italy",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/51tZ0a7a2vL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/4uWZNjK",
-    "categoria": "Casa",
-    "prezzo": 8.0,
     "featured": false
   },
   {
@@ -594,20 +621,20 @@
     "featured": false
   },
   {
-    "titolo": "Caritex Coperta Plaid Tartan in Pile Coral e Sherpa - Dimensioni Varie W462 Singolo 130x160cm Panna",
+    "titolo": "Accendino Elettronico, Accendino ad Arco, Ricarica USB Accen-dino Antivento Touch Durevole, Accendisigari Tascabile (Nero)",
     "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/71I+0-hMF0L._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/3NGQFiB",
+    "immagine": "https://m.media-amazon.com/images/I/51a2034L75L._AC_SY300_SX300_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4cb9vaR",
     "categoria": "Casa",
     "prezzo": null,
     "featured": false
   },
   {
-    "titolo": "Easycosy Festa della Mamma Coperta Personalizzata con Foto, Coperta in Flanella Ultra Morbida, Plaid Personalizzato, Idee Regalo 2026 per Donna, Uomo, Può Essere Aggiornato in Lana di Agnello",
+    "titolo": "Xbro Divano Angolare a L 3 Posti Componibile, Divano con Chaise Longue Sinistra in Velluto a Coste, con Tasche Laterali e Cuscini, per Soggiorno Appartamento, 250x160x62 cm, Grigio Scuro",
     "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/81P9ySll-fL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/4uW0eLj",
-    "categoria": "Casa",
+    "immagine": "https://m.media-amazon.com/images/I/81t1f5O2ImL._AC_SY300_SX300_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4lX1xpe",
+    "categoria": "Arredamento",
     "prezzo": null,
     "featured": false
   },
@@ -639,15 +666,6 @@
     "featured": false
   },
   {
-    "titolo": "URIAGE EAU THERMALE Latte corpo idratante con BURRO DI KARITÉ E ACIDO IALURONICO I Idratazione intensa per 24 ore. Crema idratante corpo leggera e vellutata I Piacevole profumazione floreale",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/616NKfoTlsL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/4sH9zFg",
-    "categoria": "Bellezza",
-    "prezzo": null,
-    "featured": false
-  },
-  {
     "titolo": "Victoria's Secret Spray profumato alla vaniglia nuda 238,1 g",
     "descrizione": "",
     "immagine": "https://m.media-amazon.com/images/I/41j4Kuyo24L._AC_SY300_SX300_QL70_ML2_.jpg",
@@ -675,28 +693,19 @@
     "featured": false
   },
   {
-    "titolo": "Vancavoo Giacca Primaverile Donna Giubbotto Cotone Parka Elegante Casual e Leggere Cappotto con Cappuccio Antivento Giacche Outdoor",
+    "titolo": "Navahoo Giacca Trapuntata Mezza Stagione da Donna Kimuk XS-XXL",
     "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/61aAJuJfPSL._AC_SX342_SY445_QL70_ML2_.jpg",
-    "link": "https://amzn.to/4v44WH1",
+    "immagine": "https://m.media-amazon.com/images/I/81cBVK9fQmL._AC_SY445_SX342_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4lVB4Ix",
     "categoria": "Abbigliamento e accessori",
     "prezzo": null,
     "featured": false
   },
   {
-    "titolo": "CRZ YOGA Donna Butterlift Yoga Leggings Sollevamento del Sedere 64cm/71cm - Nessuna Cucitura Frontale A Vita Alta",
+    "titolo": "Maglione da donna, senza maniche, con scollo a V, elegante, lavorato a maglia, casual, da donna, autunno, inverno",
     "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/6104CsNTNfL._AC_SX342_SY445_QL70_ML2_.jpg",
-    "link": "https://amzn.to/4bParAq",
-    "categoria": "Abbigliamento e accessori",
-    "prezzo": null,
-    "featured": false
-  },
-  {
-    "titolo": "Completo Tailleur da Donna, 2 Pezzi, Slim Fit, Giacca a Bottone Unico, con Gonna O Pantalone, da Ufficio Completo da Donna con Giacca e Cardigan con Risvolto e Bottoni alla Moda",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/61-roOvJnrL._AC_SX342_SY445_QL70_ML2_.jpg",
-    "link": "https://amzn.to/4bMtonm",
+    "immagine": "https://m.media-amazon.com/images/I/61kshcs+iyL._AC_SY445_SX342_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4s0waeO",
     "categoria": "Abbigliamento e accessori",
     "prezzo": null,
     "featured": false
@@ -720,10 +729,10 @@
     "featured": false
   },
   {
-    "titolo": "L'ANTICO LIBRO DELLE PIANTE MEDICINALI: Oltre 800 Rimedi Erboristici per Guarire Naturalmente con le Erbe e Prevenire Malattie. Più di 600 Ricette per Tinture, Infusi, Impacchi, Oli e molto altro",
+    "titolo": "MAGIA VERDE: Grimorio di erbe, alberi, fiori e tarocchi con incantesimi pratici e sicuri per espandere i tuoi poteri e vivere in armonia con la natura",
     "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/51n6MAWIIRL._SY445_SX342_ML2_.jpg",
-    "link": "https://amzn.to/3POjWsa",
+    "immagine": "https://m.media-amazon.com/images/I/51e3xQOqvsL._SY445_SX342_ML2_.jpg",
+    "link": "https://amzn.to/40ZtCTg",
     "categoria": "Libri",
     "prezzo": 24.0,
     "featured": false
@@ -735,6 +744,33 @@
     "link": "https://amzn.to/3PBcUqK",
     "categoria": "Casa",
     "prezzo": 8.0,
+    "featured": false
+  },
+  {
+    "titolo": "Friends Monica'S Key Hooks, Mobiletto In Legno Porta Chiavi Da Muro Per Casa Amici Ganci Chiave Di Monica Con Contenitore E 6 Ganci Per Gli Amanti Delle Serie TV Per Bagno Soggiorno (Viola)",
+    "descrizione": "",
+    "immagine": "https://m.media-amazon.com/images/I/61p7chTb1aL._AC_SY300_SX300_QL70_ML2_.jpg",
+    "link": "https://amzn.to/411JSmF",
+    "categoria": "Arredamento",
+    "prezzo": null,
+    "featured": false
+  },
+  {
+    "titolo": "Grupo Erik Lampada The Simpsons - Lampada da Scrivania e Comodino con Luce LED, Luce Notturna Bambini | Cavo USB o Pile AAA (17x25x12 cm)",
+    "descrizione": "",
+    "immagine": "https://m.media-amazon.com/images/I/61STwAx+9dL._AC_SX342_SY445_QL70_ML2_.jpg",
+    "link": "https://amzn.to/47qBQax",
+    "categoria": "Casa",
+    "prezzo": null,
+    "featured": false
+  },
+  {
+    "titolo": "LEGO Ideas Central Perk, Set con l'Iconico Caffè e 7 Minifigure Friends, Gadget per il 25° Anniversario della Serie TV, Costruzioni per Adulti, 21319",
+    "descrizione": "",
+    "immagine": "https://m.media-amazon.com/images/I/81xZLq7UXUL._AC_SY300_SX300_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4bCTN8f",
+    "categoria": "Giocattoli e giochi",
+    "prezzo": 153.0,
     "featured": false
   },
   {
@@ -756,20 +792,20 @@
     "featured": false
   },
   {
-    "titolo": "Hidden Games Luogo del Reato – Il caso di Villasetia – Gioco investigativo, tipo Escape Room da tavolo, giochi nascosti, risolvi un caso, detective gioco, caso da risolvere",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/81t74rKmfRL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/4bFar7q",
-    "categoria": "Giocattoli e giochi",
-    "prezzo": null,
-    "featured": false
-  },
-  {
     "titolo": "Hidden Games Luogo del Reato – Traversata fatale – Gioco investigativo, tipo Escape Room da tavolo, giochi nascosti, risolvi un caso, gioco detective, caso da risolvere, giochi da tavolo per 2",
     "descrizione": "",
     "immagine": "https://m.media-amazon.com/images/I/91+yuj4EaWL._AC_SX342_SY445_QL70_ML2_.jpg",
     "link": "https://amzn.to/4lTgj02",
     "categoria": "Giocattoli e giochi",
+    "prezzo": null,
+    "featured": false
+  },
+  {
+    "titolo": "Cicy Bell Abito da donna a maniche lunghe, scollo quadrato, abito da festa, orlo con volant, corsetto, mini abito increspato, abito corto elegante",
+    "descrizione": "",
+    "immagine": "https://m.media-amazon.com/images/I/61my3Ac+6JL._AC_SY445_SX342_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4lTghFs",
+    "categoria": "Abbigliamento e accessori",
     "prezzo": null,
     "featured": false
   },
@@ -783,11 +819,20 @@
     "featured": false
   },
   {
-    "titolo": "SupMaKin Mandolina di verdure, Spessore regolabile Patate Affettatrice Cipolla Chopper Kitchen Chopping Artifact Multifunzionale Cutte",
+    "titolo": "Popin' Cookin' party con fonduta di cioccolato",
     "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/71PoEq4RZbL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/4tk14Qt",
-    "categoria": "Cucina e tavola",
+    "immagine": "https://m.media-amazon.com/images/I/81B7iaYdm+L._AC_SX300_SY300_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4cacCjo",
+    "categoria": "Alimenti e prodotti gourmet",
+    "prezzo": null,
+    "featured": false
+  },
+  {
+    "titolo": "Lotus Biscoff | Topping di Spalmabili Dolci | Gusto Biscotto Caramellato | Vegano | Senza Coloranti o Additivi Artificiali | 1 kg",
+    "descrizione": "",
+    "immagine": "https://m.media-amazon.com/images/I/718YXULthcL._AC_SY300_SX300_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4bT7XB5",
+    "categoria": "Alimenti e prodotti gourmet",
     "prezzo": null,
     "featured": false
   },
@@ -801,24 +846,6 @@
     "featured": false
   },
   {
-    "titolo": "Pausa Libro: 101 pillole di scienza e cultura per quando posi il telefono",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/41w0xxPddgL._SY445_SX342_ML2_.jpg",
-    "link": "https://amzn.to/47wrnKF",
-    "categoria": "Libri",
-    "prezzo": 19.0,
-    "featured": false
-  },
-  {
-    "titolo": "Il cerchio dei giorni",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/41h1IbfFWJL._SY445_SX342_ML2_.jpg",
-    "link": "https://amzn.to/4bEmQse",
-    "categoria": "Libri",
-    "prezzo": 22.0,
-    "featured": false
-  },
-  {
     "titolo": "Pennelli Acquerello Professionali - Set di 10 Pennelli Per Dipingere per Acquerello, Inchiostro, Pennello Acquerelli in Setola Sintetica Scoiattolo per Alta Assorbenza | Watercolor Brushes",
     "descrizione": "",
     "immagine": "https://m.media-amazon.com/images/I/71AaDN4YLXL._AC_SY300_SX300_QL70_ML2_.jpg",
@@ -828,56 +855,11 @@
     "featured": false
   },
   {
-    "titolo": "Klever Kits Set di artigianato Set di pittura per lampada lunare, Luce notturna per pittura 3D, Set di pittura per lampada lunare, Set di artigianato regalo di compleanno per ragazze 6-12 anni",
+    "titolo": "ABEIER Set di colori acrilici sfusi di grandi dimensioni, 15 colori x 473 ml, pigmenti ricchi, colori atossici per dipingere su tela, artigianato, legno, ceramica, ideale per principianti e studenti",
     "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/81lK9N427UL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/4sL7Cb0",
-    "categoria": "Casa",
-    "prezzo": null,
-    "featured": false
-  },
-  {
-    "titolo": "Amazon Essentials Donna Gonna da Tennis Tecnica in Formflex Morbidissimo con Shorts Integrati, con Tasche",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/71kvEJg8e4L._AC_SX342_SY445_QL70_ML2_.jpg",
-    "link": "https://amzn.to/410FjZJ",
-    "categoria": "Private Label di Amazon Moda",
-    "prezzo": 18.0,
-    "featured": false
-  },
-  {
-    "titolo": "CUPSHE Gonna da donna in tweed a vita alta, linea ad A, in tessuto, con bottoni sul davanti",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/71FLztOasrL._AC_SY445_SX342_QL70_ML2_.jpg",
-    "link": "https://amzn.to/41xtI4v",
-    "categoria": "Abbigliamento e accessori",
-    "prezzo": null,
-    "featured": false
-  },
-  {
-    "titolo": "e.l.f. Power Grip Primer, Gel-Based & Hydrating Face Primer For Smoothing Skin & Gripping Makeup, Moisturizes & Primes, 0.811 Fl Oz, Clear",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/61FfGNgMGsL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/41EeydL",
-    "categoria": "Bellezza",
-    "prezzo": null,
-    "featured": false
-  },
-  {
-    "titolo": "MOACC Porta Trucchi Rotante a 360°, Organizzatore di Cosmetici ad Grande Capacità, Organizzatore di Profumi, Make Up Organizer Adatti per Toeletta Camera da Letto Bagno Cucina, 1 Strato, Ambra",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/719nE8Wl80L._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/410WXfW",
-    "categoria": "Casa",
-    "prezzo": null,
-    "featured": false
-  },
-  {
-    "titolo": "Russell Hobbs Vaporiera 9,0 l - Multicottura: 3 contenitori per cottura a vapore lavabili in lavastoviglie - Ciotola per Riso; 6 portauova; timer 60 minuti; Spegnimento automatico; No BPA, 19270-56",
-    "descrizione": "",
-    "immagine": "https://m.media-amazon.com/images/I/71kGWU+fHAL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "link": "https://amzn.to/47wTNEt",
-    "categoria": "Generico",
+    "immagine": "https://m.media-amazon.com/images/I/71gbOflDPHL._AC_SY300_SX300_QL70_ML2_.jpg",
+    "link": "https://amzn.to/4sAAGld",
+    "categoria": "Fai da te",
     "prezzo": null,
     "featured": false
   }
