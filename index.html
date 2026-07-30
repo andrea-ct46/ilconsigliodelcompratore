@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+  <!-- Inizio Codice Iubenda (Modalità di Consenso) -->
+  <script type="text/javascript">
+  var _iub = _iub || [];
+  _iub.csConfiguration = {"siteId":4628311,"cookiePolicyId":89582791,"lang":"it","storage":{"useSiteId":true}};
+  </script>
+  <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/4628311.js"></script>
+  <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
+  <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+  <!-- Fine Codice Iubenda -->
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+    
   <title>Il Consiglio del Compratore</title>
-  
+    
   <meta name="description" content="Il Consiglio del Compratore: recensioni oneste, consigli secchi e guide all'acquisto per farti scegliere i migliori prodotti di elettronica, informatica e molto altro." />
-  
+    
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2=family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -23,7 +33,7 @@
       </a>
     </div>
   </div>
-  
+    
   <div class="store-search-bar">
     <input id="search" type="text" class="search-input" placeholder="Cerca prodotto, marca, o consiglio..." />
     <button id="btn-apply-search" class="search-btn">Cerca</button>
@@ -39,7 +49,7 @@
 
   <nav class="category-bar" id="category-bar">
     <button class="cat-btn active" data-cat="">Tutti</button>
-    </nav>
+  </nav>
 
   <div class="store-toolbar">
     <div class="toolbar-results" id="icc-status">Caricamento consigli...</div>
@@ -67,9 +77,9 @@
 
   function setupFiltri() {
     const applicaFiltri = () => renderFiltrato();
-    
+        
     document.getElementById("btn-apply-search").addEventListener("click", applicaFiltri);
-    
+        
     document.getElementById("search").addEventListener("keypress", function(e) {
       if (e.key === 'Enter') applicaFiltri();
     });
@@ -80,7 +90,7 @@
       // Resetta i bottoni
       document.querySelectorAll(".cat-btn").forEach(b => b.classList.remove("active"));
       document.querySelector('.cat-btn[data-cat=""]').classList.add("active");
-      
+            
       renderProdotti(prodotti);
       document.getElementById("icc-status").textContent = `${prodotti.length} consigli trovati`;
     });
@@ -98,7 +108,7 @@
     try {
       const res = await fetch('dati.json?t=' + Date.now());
       if (!res.ok) throw new Error("HTTP " + res.status);
-      
+            
       prodotti = await res.json();
 
       if (!prodotti || prodotti.length === 0) { 
@@ -174,11 +184,11 @@
           ${p.featured ? `<span class="badge-featured">In Evidenza</span>` : ""}
           <img src="${p.immagine}" alt="${p.titolo}" class="store-card-img">
         </div>` : ""}
-        
+                 
         <div class="store-card-content">
           <div class="store-card-category">${p.categoria || "Prodotto"}</div>
           <h3 class="store-card-title" title="${p.titolo}">${p.titolo}</h3>
-          
+                    
           <div class="store-card-bottom">
             <div class="store-card-price">
               ${p.prezzo !== null ? `€ <span>${p.prezzo.toFixed(2).replace('.', ',')}</span>` : `<span class="no-price">Vedi offerta</span>`}
