@@ -1,0 +1,59 @@
+import os
+
+# Let's generate a beautiful SVG logo programmatically using python to have exact control.
+# The user wants something extremely high quality, professional, and matching the style of the dark site.
+# We will generate a high-quality SVG file named `logo.svg` using fine-tuned paths.
+
+svg_content = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 100" width="100%" height="100%">
+  <defs>
+    <!-- Cyan to Deep Blue gradient for modern tech/e-commerce premium aesthetic -->
+    <linearGradient id="premiumGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+    <style>
+      .text-light {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        fill: #FFFFFF;
+        letter-spacing: 2px;
+      }
+      .text-bold {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-size: 32px;
+        font-weight: 900;
+        fill: url(#premiumGrad);
+        letter-spacing: 1px;
+      }
+    </style>
+  </defs>
+
+  <!-- Modern Abstract Geometric Icon: Shield fused with Checkmark and Price Tag Details -->
+  <g transform="translate(15, 10)">
+    <!-- Shield Outer Glow / Shadow Contour (Subtle) -->
+    <path d="M 40 5 L 75 20 L 75 50 C 75 72 40 85 40 85 C 40 85 5 72 5 50 L 5 20 Z" 
+          fill="none" stroke="#1e293b" stroke-width="6" stroke-linejoin="round" />
+    
+    <!-- Main Gradient Shield -->
+    <path d="M 40 5 L 75 20 L 75 50 C 75 72 40 85 40 85 C 40 85 5 72 5 50 L 5 20 Z" 
+          fill="none" stroke="url(#premiumGrad)" stroke-width="4px" stroke-linecap="round" stroke-linejoin="round" />
+    
+    <!-- Inside Tag Hole (Shopping reference) -->
+    <circle cx="40" cy="22" r="3" fill="#38bdf8" />
+    
+    <!-- Dynamic sharp checkmark inside -->
+    <path d="M 26 48 L 36 58 L 56 32" 
+          fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+
+  <!-- Typography Alignment -->
+  <text x="110" y="42" class="text-light">IL CONSIGLIO DEL</text>
+  <text x="110" y="78" class="text-bold">COMPRATORE</text>
+</svg>
+"""
+
+with open("logo.svg", "w", encoding="utf-8") as f:
+    f.write(svg_content)
+
+print("SVG logo file created successfully as logo.svg")
