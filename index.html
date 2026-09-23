@@ -32,15 +32,43 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=a11fc0d" />
+  <style>
+    /* Vector mark and live text keep the brand sharp at every screen size. */
+    .store-header-top { flex: 0 0 auto; }
+    .store-logo .icc-brand {
+      display: inline-flex; align-items: center; gap: 12px;
+      max-width: 100%; color: #173e31; text-decoration: none;
+      text-align: left; vertical-align: middle; border-radius: 10px;
+    }
+    .icc-brand-mark { display: block; width: 52px; height: 52px; flex: 0 0 52px; }
+    .icc-brand-name { display: flex; flex-direction: column; gap: 2px; }
+    .icc-brand-first { font-size: 25px; line-height: 1.1; font-weight: 800; letter-spacing: -.055em; }
+    .icc-brand-second { font-size: 17px; line-height: 1.2; font-weight: 600; letter-spacing: -.035em; }
+    .icc-brand-dot { color: #967019; }
+    @media (max-width: 760px) {
+      .store-header-top { width: 100%; text-align: center; }
+    }
+    @media (max-width: 380px) {
+      .icc-brand-mark { width: 46px; height: 46px; flex-basis: 46px; }
+      .icc-brand-first { font-size: 23px; }
+      .icc-brand-second { font-size: 16px; }
+    }
+  </style>
 </head>
 <body>
 
 <header class="store-header">
   <div class="store-header-top">
-    <div class="store-logo" style="margin: 0 auto;">
-      <a href="index.html">
-        <img src="logo1.png" alt="Il Consiglio del Compratore - Logo" style="max-height: 80px; max-width: 100%; height: auto; width: auto; display: block;">
+    <div class="store-logo">
+      <a class="icc-brand" href="index.html" aria-label="Il Consiglio del Compratore — Home">
+        <svg class="icc-brand-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56" fill="none" aria-hidden="true" focusable="false">
+          <rect width="56" height="56" rx="17" fill="#185c4b"/>
+          <path d="M15 18h26v19a4 4 0 0 1-4 4H19a4 4 0 0 1-4-4V18Z" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/>
+          <path d="M22 19v-3a6 6 0 0 1 12 0v3" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="m22 29 4 4 8-8" stroke="#f4c563" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="icc-brand-name"><span class="icc-brand-first">il consiglio</span><span class="icc-brand-second">del compratore<span class="icc-brand-dot">.</span></span></span>
       </a>
     </div>
   </div>
