@@ -2,11 +2,30 @@ name: Robot Prezzi Amazon
 
 on:
   schedule:
-    - cron: '0 3 * * *' # La sveglia: tutti i giorni alle 03:00 di notte
+    - cron: '0 3 * * *' # Ogni giorno alle 03:00 UTC; soggetto alla pausa diagnostica
   workflow_dispatch: # Il pulsante magico per farlo partire a mano quando vuoi tu
 
 jobs:
+  verifica-pausa:
+    runs-on: ubuntu-latest
+    outputs:
+      enabled: ${{ steps.check.outputs.enabled }}
+    steps:
+      - name: Pausa diagnostica fino al 7 ottobre 2026
+        id: check
+        shell: bash
+        run: |
+          # Nessuna richiesta ai link Amazon durante il test, anche negli avvii manuali.
+          if [[ "$(date -u +%F)" < "2026-10-07" ]]; then
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "Scraper sospeso. Confrontare i clic Amazon dal 30/09 al 06/10." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          fi
+
   aggiorna-sito:
+    needs: verifica-pausa
+    if: needs.verifica-pausa.outputs.enabled == 'true'
     runs-on: ubuntu-latest # GitHub accende un computer Linux virtuale
     steps:
     - name: Scarica il sito
