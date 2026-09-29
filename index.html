@@ -101,7 +101,7 @@
 </main>
 
 <footer class="store-footer">
-  <p>© <span id="icc-year"></span> Il Consiglio del Compratore · I prezzi possono variare su Amazon</p>
+  <p>© <span id="icc-year"></span> Il Consiglio del Compratore · Consulta prezzi e disponibilità aggiornati su Amazon</p>
 </footer>
 
 <script>
@@ -228,10 +228,10 @@
                     
           <div class="store-card-bottom">
             <div class="store-card-price">
-              ${p.prezzo !== null ? `€ <span>${p.prezzo.toFixed(2).replace('.', ',')}</span>` : `<span class="no-price">Vedi offerta</span>`}
+              <span class="no-price">Prezzo aggiornato su Amazon</span>
             </div>
-            <a href="${p.link}" target="_blank" rel="noopener" class="store-btn-buy">
-              Vedi offerta
+            <a href="${p.link}" target="_blank" rel="sponsored noopener" class="store-btn-buy">
+              Vedi su Amazon
             </a>
           </div>
         </div>
