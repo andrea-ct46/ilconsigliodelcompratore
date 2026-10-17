@@ -1,51 +1,17 @@
-name: Robot Prezzi Amazon
+name: Robot Prezzi Amazon (sospeso)
 
+# Sospensione senza scadenza dal 17 ottobre 2026.
+# Nessuna pianificazione e nessuna chiamata a scraper.py.
+# Riattivare soltanto dopo una decisione esplicita del proprietario.
 on:
-  schedule:
-    - cron: '0 3 * * *' # Ogni giorno alle 03:00 UTC; soggetto alla pausa diagnostica
-  workflow_dispatch: # Il pulsante magico per farlo partire a mano quando vuoi tu
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
-  verifica-pausa:
+  sospeso:
     runs-on: ubuntu-latest
-    outputs:
-      enabled: ${{ steps.check.outputs.enabled }}
     steps:
-      - name: Pausa diagnostica fino al 7 ottobre 2026
-        id: check
-        shell: bash
-        run: |
-          # Nessuna richiesta ai link Amazon durante il test, anche negli avvii manuali.
-          if [[ "$(date -u +%F)" < "2026-10-07" ]]; then
-            echo "enabled=false" >> "$GITHUB_OUTPUT"
-            echo "Scraper sospeso. Confrontare i clic Amazon dal 30/09 al 06/10." >> "$GITHUB_STEP_SUMMARY"
-          else
-            echo "enabled=true" >> "$GITHUB_OUTPUT"
-          fi
-
-  aggiorna-sito:
-    needs: verifica-pausa
-    if: needs.verifica-pausa.outputs.enabled == 'true'
-    runs-on: ubuntu-latest # GitHub accende un computer Linux virtuale
-    steps:
-    - name: Scarica il sito
-      uses: actions/checkout@v3
-
-    - name: Prepara Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'
-
-    - name: Installa strumenti
-      run: pip install requests beautifulsoup4
-
-    - name: Fai partire lo Scraper
-      run: python scraper.py
-
-    - name: Salva i nuovi dati sul sito
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "Robot del Compratore"
-        git add dati.json
-        git commit -m "Aggiornati prezzi e prodotti" || echo "Nessuna modifica da salvare"
-        git push
+      - name: Scraper disattivato
+        run: echo "Scraper sospeso senza scadenza. Nessun link Amazon aperto e nessun dato modificato." >> "$GITHUB_STEP_SUMMARY"
