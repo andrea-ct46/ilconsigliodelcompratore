@@ -20,6 +20,26 @@ Il controllo è puntuale: non implica disponibilità futura. Le tre nuove schede
 
 ## Prezzi e automazioni
 
-Prezzi e sconti non sono mostrati nel sito. Eventuali valori storici in `dati.json` non sono dati aggiornati e non devono essere usati per affermare offerte attuali. La visualizzazione futura richiede una fonte autorizzata da Amazon e il rispetto delle condizioni applicabili.
+La pagina supporta prezzi e sconti attraverso `price-display.js`. Per mostrarli serve una `offerta` ottenuta dalle API Amazon, con valuta EUR, data del controllo e scadenza. Il catalogo attuale non contiene offerte autorizzate aggiornate: i valori storici `prezzo` vengono ignorati. Il collegamento alle API dell'account resta da configurare quando Amazon ne abilita l'accesso.
+
+Formato della proprietà `offerta` di un prodotto (i seguenti dati sono esclusivamente un esempio e non sono nel catalogo pubblicato):
+
+```json
+{
+  "amount": 80,
+  "currency": "EUR",
+  "source": "amazon-creators-api",
+  "checkedAt": "2026-10-19T09:00:00Z",
+  "expiresAt": "2026-10-19T10:00:00Z",
+  "referenceAmount": 100,
+  "referenceType": "list"
+}
+```
+
+`source` ammette `amazon-creators-api` e `amazon-pa-api`; l'etichetta di provenienza non prova da sola l'autorizzazione. `referenceType` distingue prezzo consigliato (`list`) e prezzo precedente (`previous`), da copiare secondo il significato del dato fornito dalla fonte. Senza riferimento valido viene mostrato solo il prezzo corrente. Coupon, rate e abbonamenti non si trasformano automaticamente in sconti sul prezzo singolo.
+
+Ogni prezzo mostra data e ora del controllo e un avviso sulla sua variabilità. Le offerte scadute, prive di timestamp o con validità oltre 24 ore vengono nascoste. La scadenza è ricontrollata ogni minuto e quando la pagina torna in primo piano. Un formato prezzo servito direttamente da Amazon va incorporato usando il suo formato ufficiale, non importato come JSON.
+
+Verifica del modulo: `node --test test/price-display.test.cjs`.
 
 Il workflow `.github/workflows/robot.yml` resta sospeso. Non esegue `scraper.py` e non ha una pianificazione.

@@ -32,7 +32,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=catalogo-20261019" />
+  <link rel="stylesheet" href="style.css?v=prezzi-20261019" />
   <style>
     /* Vector mark and live text keep the brand sharp at every screen size. */
     .store-header-top { flex: 0 0 auto; }
@@ -105,6 +105,7 @@
   <p>In qualità di Affiliato Amazon ricevo un guadagno dagli acquisti idonei.</p>
 </footer>
 
+<script src="price-display.js?v=20261019"></script>
 <script>
   let prodotti = [];
   let currentCategory = "";
@@ -113,6 +114,9 @@
     document.getElementById("icc-year").textContent = new Date().getFullYear();
     caricaProdotti();
     setupFiltri();
+    // Recheck expiry while the page stays open or returns from a background tab.
+    setInterval(() => { if (prodotti.length) renderFiltrato(); }, 60000);
+    window.addEventListener("focus", () => { if (prodotti.length) renderFiltrato(); });
   });
 
   function setupFiltri() {
@@ -224,6 +228,7 @@
       card.className = "store-card";
       const titolo = escapeHtml(p.titolo);
       const link = escapeHtml(p.link);
+      const prezzo = window.ICCPrices?.getPriceView(p, Date.now()) ?? null;
 
       card.innerHTML = `
         <div class="store-card-img-wrapper">
@@ -246,7 +251,15 @@
                     
           <div class="store-card-bottom">
             <div class="store-card-price">
-              <span class="no-price">Prezzo aggiornato su Amazon</span>
+              ${prezzo ? `
+              <div class="price-current">
+                <span>${escapeHtml(prezzo.currentPrice)}</span>
+                ${prezzo.discountPercent ? `<span class="price-saving">−${prezzo.discountPercent}%</span>` : ""}
+              </div>
+              ${prezzo.referencePrice ? `<div class="price-reference">${escapeHtml(prezzo.referenceLabel)}: <del>${escapeHtml(prezzo.referencePrice)}</del></div>` : ""}
+              <p class="price-updated">Aggiornato il ${escapeHtml(prezzo.checkedAtDate)}</p>
+              <details class="price-details"><summary>Informazioni sul prezzo</summary><p>Prezzi e disponibilità sono corretti alla data e all’ora indicate e possono cambiare. Si applicano il prezzo e la disponibilità mostrati su Amazon al momento dell’acquisto.</p></details>
+              ` : `<span class="no-price">Verifica il prezzo su Amazon</span>`}
             </div>
             <a href="${link}" target="_blank" rel="sponsored noopener" class="store-btn-buy">
               Vedi su Amazon
