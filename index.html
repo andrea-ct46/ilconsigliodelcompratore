@@ -27,12 +27,12 @@
     
   <title>Il Consiglio del Compratore</title>
     
-  <meta name="description" content="Il Consiglio del Compratore: recensioni oneste, consigli secchi e guide all'acquisto per farti scegliere i migliori prodotti di elettronica, informatica e molto altro." />
+  <meta name="description" content="Prodotti selezionati per casa, lavoro, viaggi e tempo libero, con consigli pratici e aspetti da valutare prima dell'acquisto." />
     
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=a11fc0d" />
+  <link rel="stylesheet" href="style.css?v=catalogo-20261019" />
   <style>
     /* Vector mark and live text keep the brand sharp at every screen size. */
     .store-header-top { flex: 0 0 auto; }
@@ -82,8 +82,8 @@
 <main class="store-main">
 
   <div class="intro-box">
-    <h2>Consigli secchi, recensioni e migliori prezzi</h2>
-    <p>Selezioniamo e recensiamo quotidianamente i migliori prodotti sul mercato per offrirti consigli diretti e farti risparmiare tempo. Esplora le nostre schede e trova i migliori consigli del momento.</p>
+    <h2>Prodotti scelti per esigenze concrete</h2>
+    <p>Idee per casa, lavoro, viaggi e tempo libero. Parti dai consigli in evidenza: trovi a chi può servire ogni prodotto e cosa valutare prima di acquistarlo. Prezzi e disponibilità si verificano su Amazon.</p>
   </div>
 
   <nav class="category-bar" id="category-bar">
@@ -102,6 +102,7 @@
 
 <footer class="store-footer">
   <p>© <span id="icc-year"></span> Il Consiglio del Compratore · Consulta prezzi e disponibilità aggiornati su Amazon</p>
+  <p>In qualità di Affiliato Amazon ricevo un guadagno dagli acquisti idonei.</p>
 </footer>
 
 <script>
@@ -160,7 +161,7 @@
     } catch (err) {
       console.error(err);
       status.textContent = "0 consigli";
-      errorBox.textContent = "In attesa del primo aggiornamento. Torna tra 1 minuto!";
+      errorBox.textContent = "Non è stato possibile caricare i consigli. Ricarica la pagina o riprova più tardi.";
     }
   }
 
@@ -195,7 +196,8 @@
     const search = document.getElementById("search").value.toLowerCase().trim();
 
     const filtrati = prodotti.filter(p => {
-      if (search && !p.titolo.toLowerCase().includes(search)) return false;
+      const testo = [p.titolo, p.descrizione, p.categoria].filter(Boolean).join(" ").toLowerCase();
+      if (search && !testo.includes(search)) return false;
       if (currentCategory && p.categoria !== currentCategory) return false;
       return true;
     });
@@ -203,6 +205,12 @@
     renderProdotti(filtrati);
     const status = document.getElementById("icc-status");
     status.textContent = `${filtrati.length} consigli trovati`;
+  }
+
+  function escapeHtml(value) {
+    return String(value ?? "").replace(/[&<>"']/g, char => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+    })[char]);
   }
 
   function renderProdotti(lista) {
@@ -214,23 +222,33 @@
     lista.forEach(p => {
       const card = document.createElement("article");
       card.className = "store-card";
+      const titolo = escapeHtml(p.titolo);
+      const link = escapeHtml(p.link);
 
       card.innerHTML = `
-        ${p.immagine ? `
         <div class="store-card-img-wrapper">
           ${p.featured ? `<span class="badge-featured">In Evidenza</span>` : ""}
-          <img src="${p.immagine}" alt="${p.titolo}" class="store-card-img">
-        </div>` : ""}
+          ${p.immagine ? `<img src="${escapeHtml(p.immagine)}" alt="${titolo}" class="store-card-img" loading="lazy">` : `
+          <a href="${link}" target="_blank" rel="sponsored noopener" class="store-card-image-link" aria-label="Guarda le foto di ${titolo} su Amazon">
+            <svg width="60" height="60" viewBox="0 0 56 56" fill="none" aria-hidden="true" focusable="false">
+              <rect x="10" y="17" width="36" height="31" rx="7" stroke="currentColor" stroke-width="2"/>
+              <path d="M20 19v-4a8 8 0 0 1 16 0v4m-15 13 5 5 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Foto su Amazon</span>
+          </a>`}
+        </div>
                  
         <div class="store-card-content">
-          <div class="store-card-category">${p.categoria || "Prodotto"}</div>
-          <h3 class="store-card-title" title="${p.titolo}">${p.titolo}</h3>
+          <div class="store-card-category">${escapeHtml(p.categoria || "Prodotto")}</div>
+          <h3 class="store-card-title" title="${titolo}">${titolo}</h3>
+          ${p.descrizione ? `<p class="store-card-description">${escapeHtml(p.descrizione)}</p>` : ""}
+          ${p.limite ? `<p class="store-card-limit"><strong>Da valutare:</strong> ${escapeHtml(p.limite)}</p>` : ""}
                     
           <div class="store-card-bottom">
             <div class="store-card-price">
               <span class="no-price">Prezzo aggiornato su Amazon</span>
             </div>
-            <a href="${p.link}" target="_blank" rel="sponsored noopener" class="store-btn-buy">
+            <a href="${link}" target="_blank" rel="sponsored noopener" class="store-btn-buy">
               Vedi su Amazon
             </a>
           </div>
