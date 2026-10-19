@@ -66,12 +66,12 @@
     "featured": true,
     "limite": "Il link rimanda all’edizione in copertina flessibile: verifica il formato prima di acquistare.",
     "offerta": {
-      "amount": 18.05,
+      "amount": 17.36,
       "currency": "EUR",
       "source": "amazon-page",
-      "checkedAt": "2026-10-19T16:03:18Z",
-      "expiresAt": "2026-10-20T04:03:18Z",
-      "referenceAmount": 19.0,
+      "checkedAt": "2026-10-19T16:06:11Z",
+      "expiresAt": "2026-10-20T04:06:11Z",
+      "referenceAmount": 18.27,
       "referenceType": "list"
     }
   },

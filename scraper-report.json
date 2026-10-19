@@ -1,0 +1,295 @@
+{
+  "checkedAt": "2026-10-19T16:05:57Z",
+  "products": 72,
+  "attempted": 72,
+  "updated": 1,
+  "failed": 71,
+  "skipped": 0,
+  "errors": [
+    {
+      "index": 0,
+      "reason": "captcha_or_block"
+    },
+    {
+      "index": 1,
+      "reason": "captcha_or_block"
+    },
+    {
+      "index": 2,
+      "reason": "captcha_or_block"
+    },
+    {
+      "index": 3,
+      "reason": "captcha_or_block"
+    },
+    {
+      "index": 4,
+      "reason": "captcha_or_block"
+    },
+    {
+      "index": 5,
+      "reason": "captcha_or_block"
+    },
+    {
+      "index": 7,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 8,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 9,
+      "reason": "HTTPStatusError"
+    },
+    {
+      "index": 10,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 11,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 12,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 13,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 14,
+      "reason": "HTTPStatusError"
+    },
+    {
+      "index": 15,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 16,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 17,
+      "reason": "HTTPStatusError"
+    },
+    {
+      "index": 18,
+      "reason": "HTTPStatusError"
+    },
+    {
+      "index": 19,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 20,
+      "reason": "HTTPStatusError"
+    },
+    {
+      "index": 21,
+      "reason": "HTTPStatusError"
+    },
+    {
+      "index": 22,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 23,
+      "reason": "HTTPStatusError"
+    },
+    {
+      "index": 24,
+      "reason": "HTTPStatusError"
+    },
+    {
+      "index": 25,
+      "reason": "HTTPStatusError"
+    },
+    {
+      "index": 26,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 27,
+      "reason": "HTTPStatusError"
+    },
+    {
+      "index": 28,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 29,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 30,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 31,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 32,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 33,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 34,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 35,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 36,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 37,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 38,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 39,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 40,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 41,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 42,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 43,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 44,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 45,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 46,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 47,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 48,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 49,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 50,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 51,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 52,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 53,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 54,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 55,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 56,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 57,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 58,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 59,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 60,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 61,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 62,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 63,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 64,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 65,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 66,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 67,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 68,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 69,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 70,
+      "reason": "unexpected_redirect"
+    },
+    {
+      "index": 71,
+      "reason": "unexpected_redirect"
+    }
+  ],
+  "finishedAt": "2026-10-19T16:09:51Z"
+}
