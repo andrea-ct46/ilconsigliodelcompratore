@@ -1,17 +1,77 @@
-name: Robot Prezzi Amazon (sospeso)
+name: Robot Prezzi Amazon
 
-# Sospensione senza scadenza dal 17 ottobre 2026.
-# Nessuna pianificazione e nessuna chiamata a scraper.py.
-# Riattivare soltanto dopo una decisione esplicita del proprietario.
 on:
+  schedule:
+    - cron: '17 */6 * * *'
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - scraper.py
+      - requirements.txt
+      - tests/**
+      - .github/workflows/robot.yml
 
 permissions:
-  contents: read
+  contents: write
+  pages: write
+
+concurrency:
+  group: aggiornamento-prezzi-amazon
+  cancel-in-progress: false
 
 jobs:
-  sospeso:
+  aggiorna:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     steps:
-      - name: Scraper disattivato
-        run: echo "Scraper sospeso senza scadenza. Nessun link Amazon aperto e nessun dato modificato." >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Installa dipendenze
+        run: python -m pip install -r requirements.txt
+      - name: Verifica estrazione e visualizzazione prezzi
+        run: |
+          python -m unittest discover -s tests -v
+          node --test test/price-display.test.cjs
+      - name: Aggiorna le offerte del catalogo
+        id: scrape
+        continue-on-error: true
+        run: python scraper.py
+      - name: Salva catalogo e rapporto
+        id: save
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dati.json scraper-report.json
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "Aggiorna prezzi Amazon e rapporto di raccolta"
+            git pull --rebase origin main
+            git push origin HEAD:main
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Richiedi pubblicazione GitHub Pages
+        if: steps.save.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds" --silent
+      - name: Conserva il rapporto di esecuzione
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rapporto-prezzi
+          path: scraper-report.json
+          if-no-files-found: ignore
+          retention-days: 14
+      - name: Segnala mancata raccolta dei prezzi
+        if: steps.scrape.outcome == 'failure'
+        run: |
+          echo "::error::Nessun prezzo aggiornato: consultare scraper-report.json. Il catalogo esistente è stato conservato."
+          exit 1

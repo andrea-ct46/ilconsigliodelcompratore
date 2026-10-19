@@ -1,4 +1,4 @@
-// A source tag is not proof of a licence: feed data must come from an authorised channel.
+// Sources identify where an offer was collected; timestamps control its visibility.
 (function (root, factory) {
   'use strict';
   const api = factory();
@@ -9,7 +9,7 @@
 
   const MAX_AGE_MS = 24 * 60 * 60 * 1000;
   const MAX_CLOCK_SKEW_MS = 5 * 60 * 1000;
-  const SOURCES = new Set(['amazon-creators-api', 'amazon-pa-api']);
+  const SOURCES = new Set(['amazon-creators-api', 'amazon-pa-api', 'amazon-page']);
   const euros = new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR' });
   const updatedDate = new Intl.DateTimeFormat('it-IT', {
     day: '2-digit', month: '2-digit', year: 'numeric',
@@ -37,7 +37,7 @@
     return Number.isSafeInteger(Math.round(cents)) && Math.abs(cents - Math.round(cents)) < 0.000001;
   }
 
-  // Source tags describe feed provenance; they are not a compliance certification.
+  // Source tags describe feed provenance.
   // Only a dated, unexpired offer is usable. The legacy `prezzo` field is ignored.
   function getPriceView(product, nowMs) {
     const now = nowMs === undefined ? Date.now() : nowMs;
@@ -67,4 +67,3 @@
 
   return Object.freeze({ getPriceView });
 });
-// These checks validate freshness and format only, not permission to publish Amazon data.

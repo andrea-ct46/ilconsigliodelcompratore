@@ -64,7 +64,16 @@
     "categoria": "Libri",
     "prezzo": 17,
     "featured": true,
-    "limite": "Il link rimanda all’edizione in copertina flessibile: verifica il formato prima di acquistare."
+    "limite": "Il link rimanda all’edizione in copertina flessibile: verifica il formato prima di acquistare.",
+    "offerta": {
+      "amount": 18.05,
+      "currency": "EUR",
+      "source": "amazon-page",
+      "checkedAt": "2026-10-19T16:03:18Z",
+      "expiresAt": "2026-10-20T04:03:18Z",
+      "referenceAmount": 19.0,
+      "referenceType": "list"
+    }
   },
   {
     "titolo": "Russell Hobbs Vaporiera 9 L, 800 W",

@@ -12,7 +12,7 @@ const fixture = (overrides = {}) => ({ offerta: {
 } });
 const price = n => new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR' }).format(n);
 
-test('formats a verified, current EUR offer and its stated reference', () => {
+test('formats a current EUR offer and its stated reference', () => {
   assert.deepEqual(getPriceView(fixture(), now), {
     currentPrice: price(80), referencePrice: price(100),
     referenceLabel: 'Prezzo consigliato', discountPercent: 20,
@@ -20,6 +20,23 @@ test('formats a verified, current EUR offer and its stated reference', () => {
   });
   assert.equal(getPriceView(fixture({ referenceType: 'previous' }), now).referenceLabel, 'Prezzo precedente');
   assert.equal(getPriceView(fixture({ amount: 949, referenceAmount: 1129 }), now).discountPercent, 16);
+});
+
+test('displays a newly scraped Amazon page offer and hides it at expiry', () => {
+  const scraped = fixture({
+    source: 'amazon-page',
+    expiresAt: '2026-10-19T21:00:00Z',
+    referenceType: 'previous'
+  });
+  assert.deepEqual(getPriceView(scraped, now), {
+    currentPrice: price(80), referencePrice: price(100),
+    referenceLabel: 'Prezzo precedente', discountPercent: 20,
+    checkedAtDate: '19/10/2026, 11:00'
+  });
+  assert.ok(getPriceView(scraped, Date.parse('2026-10-19T20:59:59Z')));
+  assert.equal(getPriceView(scraped, Date.parse('2026-10-19T21:00:00Z')), null);
+  assert.equal(getPriceView(scraped, Date.parse('2026-10-19T21:00:01Z')), null);
+  assert.equal(getPriceView(fixture({ source: 'amazon-page', checkedAt: undefined }), now), null);
 });
 
 test('missing offers and historical prices are not displayed', () => {
@@ -38,7 +55,7 @@ test('rejects missing or malformed amounts, currencies and sources', () => {
   for (const source of [undefined, 'firecrawl', 'manual', 'amazon', 'amazon-served']) {
     assert.equal(getPriceView(fixture({ source }), now), null);
   }
-  for (const source of ['amazon-creators-api', 'amazon-pa-api']) {
+  for (const source of ['amazon-creators-api', 'amazon-pa-api', 'amazon-page']) {
     assert.ok(getPriceView(fixture({ source }), now));
   }
 });
