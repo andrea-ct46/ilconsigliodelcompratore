@@ -1,9 +1,9 @@
 {
-  "checkedAt": "2026-10-19T16:05:57Z",
+  "checkedAt": "2026-10-19T22:20:00Z",
   "products": 72,
   "attempted": 72,
-  "updated": 1,
-  "failed": 71,
+  "updated": 0,
+  "failed": 72,
   "skipped": 0,
   "errors": [
     {
@@ -16,19 +16,23 @@
     },
     {
       "index": 2,
-      "reason": "captcha_or_block"
+      "reason": "unavailable"
     },
     {
       "index": 3,
-      "reason": "captcha_or_block"
+      "reason": "unexpected_redirect"
     },
     {
       "index": 4,
-      "reason": "captcha_or_block"
+      "reason": "unexpected_redirect"
     },
     {
       "index": 5,
-      "reason": "captcha_or_block"
+      "reason": "HTTPStatusError"
+    },
+    {
+      "index": 6,
+      "reason": "unexpected_redirect"
     },
     {
       "index": 7,
@@ -40,7 +44,7 @@
     },
     {
       "index": 9,
-      "reason": "HTTPStatusError"
+      "reason": "unexpected_redirect"
     },
     {
       "index": 10,
@@ -60,7 +64,7 @@
     },
     {
       "index": 14,
-      "reason": "HTTPStatusError"
+      "reason": "unexpected_redirect"
     },
     {
       "index": 15,
@@ -72,11 +76,11 @@
     },
     {
       "index": 17,
-      "reason": "HTTPStatusError"
+      "reason": "unexpected_redirect"
     },
     {
       "index": 18,
-      "reason": "HTTPStatusError"
+      "reason": "unexpected_redirect"
     },
     {
       "index": 19,
@@ -84,11 +88,11 @@
     },
     {
       "index": 20,
-      "reason": "HTTPStatusError"
+      "reason": "unexpected_redirect"
     },
     {
       "index": 21,
-      "reason": "HTTPStatusError"
+      "reason": "unexpected_redirect"
     },
     {
       "index": 22,
@@ -96,11 +100,11 @@
     },
     {
       "index": 23,
-      "reason": "HTTPStatusError"
+      "reason": "unexpected_redirect"
     },
     {
       "index": 24,
-      "reason": "HTTPStatusError"
+      "reason": "unexpected_redirect"
     },
     {
       "index": 25,
@@ -112,7 +116,7 @@
     },
     {
       "index": 27,
-      "reason": "HTTPStatusError"
+      "reason": "unexpected_redirect"
     },
     {
       "index": 28,
@@ -291,5 +295,5 @@
       "reason": "unexpected_redirect"
     }
   ],
-  "finishedAt": "2026-10-19T16:09:51Z"
+  "finishedAt": "2026-10-19T22:24:22Z"
 }
