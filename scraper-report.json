@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-20T04:45:44Z",
+  "checkedAt": "2026-10-20T11:31:57Z",
   "products": 72,
   "attempted": 72,
   "updated": 0,
@@ -8,43 +8,43 @@
   "errors": [
     {
       "index": 0,
-      "reason": "captcha_or_block"
+      "reason": "no_main_eur_price"
     },
     {
       "index": 1,
-      "reason": "captcha_or_block"
+      "reason": "unexpected_redirect"
     },
     {
       "index": 2,
-      "reason": "captcha_or_block"
+      "reason": "unexpected_redirect"
     },
     {
       "index": 3,
-      "reason": "captcha_or_block"
+      "reason": "unexpected_redirect"
     },
     {
       "index": 4,
-      "reason": "captcha_or_block"
+      "reason": "unexpected_redirect"
     },
     {
       "index": 5,
-      "reason": "captcha_or_block"
+      "reason": "unexpected_redirect"
     },
     {
       "index": 6,
-      "reason": "captcha_or_block"
+      "reason": "unexpected_redirect"
     },
     {
       "index": 7,
-      "reason": "captcha_or_block"
+      "reason": "unexpected_redirect"
     },
     {
       "index": 8,
-      "reason": "captcha_or_block"
+      "reason": "unexpected_redirect"
     },
     {
       "index": 9,
-      "reason": "unavailable"
+      "reason": "unexpected_redirect"
     },
     {
       "index": 10,
@@ -108,7 +108,7 @@
     },
     {
       "index": 25,
-      "reason": "HTTPStatusError"
+      "reason": "unexpected_redirect"
     },
     {
       "index": 26,
@@ -152,7 +152,7 @@
     },
     {
       "index": 36,
-      "reason": "HTTPStatusError"
+      "reason": "unexpected_redirect"
     },
     {
       "index": 37,
@@ -160,7 +160,7 @@
     },
     {
       "index": 38,
-      "reason": "HTTPStatusError"
+      "reason": "unexpected_redirect"
     },
     {
       "index": 39,
@@ -180,7 +180,7 @@
     },
     {
       "index": 43,
-      "reason": "HTTPStatusError"
+      "reason": "unexpected_redirect"
     },
     {
       "index": 44,
@@ -295,5 +295,5 @@
       "reason": "unexpected_redirect"
     }
   ],
-  "finishedAt": "2026-10-20T04:49:29Z"
+  "finishedAt": "2026-10-20T11:37:13Z"
 }
