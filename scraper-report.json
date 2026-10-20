@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-20T17:00:19Z",
+  "checkedAt": "2026-10-20T21:35:19Z",
   "products": 72,
   "attempted": 72,
   "updated": 0,
@@ -8,19 +8,19 @@
   "errors": [
     {
       "index": 0,
-      "reason": "captcha_or_block"
+      "reason": "no_main_eur_price"
     },
     {
       "index": 1,
-      "reason": "captcha_or_block"
+      "reason": "unexpected_redirect"
     },
     {
       "index": 2,
-      "reason": "captcha_or_block"
+      "reason": "unexpected_redirect"
     },
     {
       "index": 3,
-      "reason": "unavailable"
+      "reason": "unexpected_redirect"
     },
     {
       "index": 4,
@@ -32,7 +32,7 @@
     },
     {
       "index": 6,
-      "reason": "HTTPStatusError"
+      "reason": "unexpected_redirect"
     },
     {
       "index": 7,
@@ -108,7 +108,7 @@
     },
     {
       "index": 25,
-      "reason": "HTTPStatusError"
+      "reason": "unexpected_redirect"
     },
     {
       "index": 26,
@@ -295,5 +295,5 @@
       "reason": "unexpected_redirect"
     }
   ],
-  "finishedAt": "2026-10-20T17:04:45Z"
+  "finishedAt": "2026-10-20T21:40:21Z"
 }
