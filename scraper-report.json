@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-20T21:35:19Z",
+  "checkedAt": "2026-10-21T04:42:10Z",
   "products": 72,
   "attempted": 72,
   "updated": 0,
@@ -8,15 +8,15 @@
   "errors": [
     {
       "index": 0,
-      "reason": "no_main_eur_price"
+      "reason": "captcha_or_block"
     },
     {
       "index": 1,
-      "reason": "unexpected_redirect"
+      "reason": "unavailable"
     },
     {
       "index": 2,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 3,
@@ -24,11 +24,11 @@
     },
     {
       "index": 4,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 5,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 6,
@@ -36,7 +36,7 @@
     },
     {
       "index": 7,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 8,
@@ -44,15 +44,15 @@
     },
     {
       "index": 9,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 10,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 11,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 12,
@@ -60,23 +60,23 @@
     },
     {
       "index": 13,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 14,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 15,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 16,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 17,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 18,
@@ -96,11 +96,11 @@
     },
     {
       "index": 22,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 23,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 24,
@@ -108,11 +108,11 @@
     },
     {
       "index": 25,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 26,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 27,
@@ -120,23 +120,23 @@
     },
     {
       "index": 28,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 29,
-      "reason": "unexpected_redirect"
+      "reason": "no_main_eur_price"
     },
     {
       "index": 30,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 31,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 32,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 33,
@@ -144,15 +144,15 @@
     },
     {
       "index": 34,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 35,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 36,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 37,
@@ -160,7 +160,7 @@
     },
     {
       "index": 38,
-      "reason": "unexpected_redirect"
+      "reason": "HTTPStatusError"
     },
     {
       "index": 39,
@@ -168,23 +168,23 @@
     },
     {
       "index": 40,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 41,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 42,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 43,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 44,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 45,
@@ -192,11 +192,11 @@
     },
     {
       "index": 46,
-      "reason": "unexpected_redirect"
+      "reason": "HTTPStatusError"
     },
     {
       "index": 47,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 48,
@@ -204,7 +204,7 @@
     },
     {
       "index": 49,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 50,
@@ -212,11 +212,11 @@
     },
     {
       "index": 51,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 52,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 53,
@@ -224,7 +224,7 @@
     },
     {
       "index": 54,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 55,
@@ -236,31 +236,31 @@
     },
     {
       "index": 57,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 58,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 59,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 60,
-      "reason": "unexpected_redirect"
+      "reason": "unavailable"
     },
     {
       "index": 61,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 62,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 63,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 64,
@@ -272,7 +272,7 @@
     },
     {
       "index": 66,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 67,
@@ -280,20 +280,20 @@
     },
     {
       "index": 68,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 69,
-      "reason": "unexpected_redirect"
+      "reason": "HTTPStatusError"
     },
     {
       "index": 70,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     },
     {
       "index": 71,
-      "reason": "unexpected_redirect"
+      "reason": "captcha_or_block"
     }
   ],
-  "finishedAt": "2026-10-20T21:40:21Z"
+  "finishedAt": "2026-10-21T04:45:07Z"
 }
